@@ -1,5 +1,12 @@
 import consumer from "./consumer"
-import { notice, defaults } from '@pnotify/core';
+import { alert } from '@pnotify/core';
+
+import { defaultModules, Stack, defaultStack } from '@pnotify/core';
+import * as PNotifyFontAwesome5Fix from '@pnotify/font-awesome5-fix';
+import * as PNotifyFontAwesome5 from '@pnotify/font-awesome5';
+
+defaultModules.set(PNotifyFontAwesome5Fix, {});
+defaultModules.set(PNotifyFontAwesome5, {});
 
 consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
   connected() {
@@ -13,11 +20,33 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
 
   received(data) {
     console.log('received', data);
-    let options = data;
-    options['type'] = options['kind']
-    defaults.styling = 'material'
-    defaults.icons = 'material'
-    const myAlert = notice(options)
+
+defaultStack
+
+    defaultStack.context = document.body;
+    const myAlert = alert({
+      type:  data['kind'],
+      title: data['title'],
+      titleTrusted: true,
+      text: data['text'],
+      textTrusted: true,
+      hide: false,
+      stack: defaultStack
+      // modules: {
+      //   Confirm: {
+      //     confirm: true
+      //   }
+      // }
+    });
+    myAlert.on('pnotify:afterClose', () => {
+    });
+    myAlert.on('pnotify:confirm', () => {
+      // User confirmed, continue here...
+    });
+    myAlert.on('pnotify:cancel', () => {
+      // User canceled, continue here...
+    });
+
   },
 
   notice: function (data) {
