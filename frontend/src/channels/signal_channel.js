@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("SignalChannel", {
+consumer.subscriptions.create("Signum::SignalChannel", {
   connected() {
     console.log("connected to signal channel")
     // Called when the subscription is ready for use on the server
