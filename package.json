@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "",
   "files": [
-    "frontend/src"
+    "frontend/dist"
   ],
   "scripts": {
     "build": "webpack --config webpack.config.js --color",
     "watch": "webpack --config webpack.config.js --color"
   },
-  "main": "frontend/src/signum.js",
+  "main": "frontend/dist/signum.js",
   "browserslist": "> 1%",
   "author": "Tom de Grunt",
   "license": "MIT",
