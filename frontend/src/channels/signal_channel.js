@@ -1,6 +1,7 @@
 import consumer from "./consumer"
+import { notice, defaults } from '@pnotify/core';
 
-consumer.subscriptions.create("Signum::SignalChannel", {
+consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
   connected() {
     console.log("connected to signal channel")
     // Called when the subscription is ready for use on the server
@@ -11,12 +12,16 @@ consumer.subscriptions.create("Signum::SignalChannel", {
   },
 
   received(data) {
-    alert(data);
-    // Called when there's incoming data on the websocket for this channel
+    console.log('received', data);
+    let options = data;
+    options['type'] = options['kind']
+    defaults.styling = 'material'
+    defaults.icons = 'material'
+    const myAlert = notice(options)
   },
 
   notice: function (data) {
-    alert(data);
+    console.log('notice', data);
     return this.perform('notice');
   }
 });

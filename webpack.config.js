@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './frontend/src/signum.js',
@@ -10,7 +11,10 @@ module.exports = {
     libraryTarget: 'umd'
   },
   plugins: [
-
+    // new CleanWebpackPlugin(['frontend/dist'],  {}),
+    new MiniCssExtractPlugin({
+      filename: 'signum.css'
+    })
   ],
   module: {
     rules: [
@@ -29,6 +33,16 @@ module.exports = {
         test: /\.(|ttf|eot|svg|woff2?)(\?[\s\S]+)?$/,
         use: 'file-loader',
       },
+      {
+        test: /\.(sass|scss|css)$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader?sourceMap=false',
+          'sass-loader?sourceMap=false'
+        ]
+      }
     ]
   },
   resolve: {

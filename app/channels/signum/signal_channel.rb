@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_dependency 'signum/application_cable/channel'
+
 module Signum
   class SignalChannel < ApplicationCable::Channel
     def subscribed
