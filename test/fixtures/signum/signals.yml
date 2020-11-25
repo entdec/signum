@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  sticky: false
+  icon: MyString
+  title: MyString
+  text: MyText
+
+two:
+  kind: MyString
+  sticky: false
+  icon: MyString
+  title: MyString
+  text: MyText

@@ -1,0 +1,13 @@
+class CreateSignumSignals < ActiveRecord::Migration[6.0]
+  def change
+    create_table :signum_signals, id: :uuid do |t|
+      t.string :kind, default: 'notice'
+      t.boolean :sticky
+      t.string :icon
+      t.string :title
+      t.text :text
+
+      t.timestamps
+    end
+  end
+end
