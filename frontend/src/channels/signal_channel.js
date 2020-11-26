@@ -19,26 +19,33 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
   },
 
   received(data) {
+    const self = this;
     console.log('received', data);
 
-defaultStack
-
-    defaultStack.context = document.body;
-    const myAlert = alert({
+    // https://github.com/sciactive/pnotify#options
+    let options = {
       type:  data['kind'],
-      title: data['title'],
       titleTrusted: true,
       text: data['text'],
       textTrusted: true,
-      hide: false,
-      stack: defaultStack
-      // modules: {
-      //   Confirm: {
-      //     confirm: true
-      //   }
-      // }
+      hide: true,
+      stack: defaultStack,
+      delay: 5000
+    }
+
+    if(data['title']) {
+      options['title'] = data['title']
+    }
+
+    defaultStack.context = document.body;
+    const myAlert = alert(options);
+    myAlert.on('pnotify:afterOpen', () => {
+      console.log('afterOpen')
+      self.perform("see", { signal_id: data['id'] })
     });
     myAlert.on('pnotify:afterClose', () => {
+      console.log('afterClose')
+      self.perform("close", { signal_id: data['id'] })
     });
     myAlert.on('pnotify:confirm', () => {
       // User confirmed, continue here...
@@ -47,10 +54,5 @@ defaultStack
       // User canceled, continue here...
     });
 
-  },
-
-  notice: function (data) {
-    console.log('notice', data);
-    return this.perform('notice');
   }
 });

@@ -3,7 +3,7 @@ module Signum
     def perform(user)
       return unless user.presence == 'online'
 
-      user.signals.each do |signal|
+      user.signals.pending.each do |signal|
         Signum::SignalChannel.broadcast_to(user, signal.attributes)
       end
     end
