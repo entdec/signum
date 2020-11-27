@@ -3,6 +3,8 @@ module Signum
     belongs_to :signalable, polymorphic: true
     after_commit :signal
 
+    validates :text, presence: true
+
     scope :pending, -> { with_state(:pending) }
     scope :opened, -> { with_state(:opened) }
     scope :closed, -> { with_state(:closed) }

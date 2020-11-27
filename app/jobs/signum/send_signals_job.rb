@@ -1,7 +1,7 @@
 module Signum
   class SendSignalsJob < ApplicationJob
     def perform(user)
-      return unless user.presence == 'online'
+      return unless user.presence == 'appeared'
 
       user.signals.pending.each do |signal|
         Signum::SignalChannel.broadcast_to(user, signal.attributes)

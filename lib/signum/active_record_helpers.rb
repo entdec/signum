@@ -19,11 +19,14 @@ module Signum
     module InstanceMethods
       def online!
         update(presence: 'online')
-        Signum::SendSignalsJob.perform_later(self)
       end
 
       def offline!
         update(presence: 'offline')
+      end
+
+      def appeared!
+        update(presence: 'appeared')
       end
 
       def away!
