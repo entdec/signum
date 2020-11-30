@@ -6,7 +6,7 @@ module Signum
     validates :text, presence: true
 
     scope :pending, -> { with_state(:pending) }
-    scope :opened, -> { with_state(:opened) }
+    scope :displayed, -> { with_state(:displayed) }
     scope :closed, -> { with_state(:closed) }
 
     state_machine initial: :pending do
