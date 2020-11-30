@@ -20,7 +20,6 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
 
   received(data) {
     const self = this;
-    console.log('received', data);
 
     // https://github.com/sciactive/pnotify#options
     let options = {
@@ -30,7 +29,7 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
       textTrusted: true,
       hide: true,
       stack: defaultStack,
-      delay: 5000
+      delay: 3000
     }
 
     if(data['title']) {
@@ -40,12 +39,12 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
     defaultStack.context = document.body;
     const myAlert = alert(options);
     myAlert.on('pnotify:afterOpen', () => {
-      console.log('afterOpen')
-      self.perform("see", { signal_id: data['id'] })
+      self.perform("display", { signal_id: data['id'] })
     });
-    myAlert.on('pnotify:afterClose', () => {
-      console.log('afterClose')
-      self.perform("close", { signal_id: data['id'] })
+    myAlert.on('pnotify:afterClose', (event) => {
+      if(!event.detail.timerHide) {
+        self.perform("close", { signal_id: data['id'] })
+      }
     });
     myAlert.on('pnotify:confirm', () => {
       // User confirmed, continue here...

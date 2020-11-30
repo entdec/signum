@@ -11,15 +11,15 @@ module Signum
 
     state_machine initial: :pending do
       state :pending
-      state :seen
+      state :displayed
       state :closed
 
-      event :see do
-        transition pending: :seen
+      event :display do
+        transition pending: :displayed
       end
 
       event :close do
-        transition seen: :closed
+        transition displayed: :closed
       end
     end
 
