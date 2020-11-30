@@ -12,12 +12,12 @@ module Signum
       # Any cleanup needed when channel is unsubscribed
     end
 
-    def display(data)
+    def show(data)
       signal = Signum::Signal.find_by_id(data['signal_id'])
 
       return unless signal
 
-      signal.display!
+      signal.show!
     end
 
     def close(data)

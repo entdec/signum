@@ -39,7 +39,7 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
     defaultStack.context = document.body;
     const myAlert = alert(options);
     myAlert.on('pnotify:afterOpen', () => {
-      self.perform("display", { signal_id: data['id'] })
+      self.perform("show", { signal_id: data['id'] })
     });
     myAlert.on('pnotify:afterClose', (event) => {
       if(!event.detail.timerHide) {

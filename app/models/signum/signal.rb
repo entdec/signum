@@ -6,20 +6,20 @@ module Signum
     validates :text, presence: true
 
     scope :pending, -> { with_state(:pending) }
-    scope :displayed, -> { with_state(:displayed) }
+    scope :shown, -> { with_state(:shown) }
     scope :closed, -> { with_state(:closed) }
 
     state_machine initial: :pending do
       state :pending
-      state :displayed
+      state :shown
       state :closed
 
-      event :display do
-        transition pending: :displayed
+      event :show do
+        transition pending: :shown
       end
 
       event :close do
-        transition displayed: :closed
+        transition shown: :closed
       end
     end
 
