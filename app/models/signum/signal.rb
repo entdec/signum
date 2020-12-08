@@ -19,7 +19,8 @@ module Signum
       end
 
       event :close do
-        transition shown: :closed
+        # We allow both pending and shown, because the user could close, before we process shown
+        transition %i[pending shown] => closed
       end
     end
 
