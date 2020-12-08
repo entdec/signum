@@ -8,7 +8,7 @@ import * as PNotifyFontAwesome5 from '@pnotify/font-awesome5';
 defaultModules.set(PNotifyFontAwesome5Fix, {});
 defaultModules.set(PNotifyFontAwesome5, {});
 
-consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
+consumer.subscriptions.create({ channel: "Signum::SignalChannel" }, {
   connected() {
     console.log("connected to signal channel")
     // Called when the subscription is ready for use on the server
@@ -23,7 +23,7 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
 
     // https://github.com/sciactive/pnotify#options
     let options = {
-      type:  data['kind'],
+      type: data['kind'],
       titleTrusted: true,
       text: data['text'],
       textTrusted: true,
@@ -32,7 +32,7 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
       delay: 3000
     }
 
-    if(data['title']) {
+    if (data['title']) {
       options['title'] = data['title']
     }
 
@@ -42,7 +42,7 @@ consumer.subscriptions.create({channel: "Signum::SignalChannel"},{
       self.perform("show", { signal_id: data['id'] })
     });
     myAlert.on('pnotify:afterClose', (event) => {
-      if(!event.detail.timerHide) {
+      if (!event.detail.timerHide) {
         self.perform("close", { signal_id: data['id'] })
       }
     });

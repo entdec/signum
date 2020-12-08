@@ -20,7 +20,7 @@ module Signum
 
       event :close do
         # We allow both pending and shown, because the user could close, before we process shown
-        transition %i[pending shown] => closed
+        transition %i[pending shown] => :closed
       end
     end
 
