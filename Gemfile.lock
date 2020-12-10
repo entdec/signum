@@ -1,8 +1,10 @@
 PATH
   remote: .
   specs:
-    signum (0.1.0)
-      rails (~> 6.0.3, >= 6.0.3.4)
+    signum (0.1.5)
+      pg
+      rails (~> 6)
+      state_machines-activemodel
 
 GEM
   remote: https://rubygems.org/
@@ -70,7 +72,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    loofah (2.7.0)
+    loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -85,6 +87,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -122,7 +125,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
+    state_machines (0.5.0)
+    state_machines-activemodel (0.7.1)
+      activemodel (>= 4.1)
+      state_machines (>= 0.5.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tzinfo (1.2.8)
@@ -130,14 +136,13 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.1)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   signum!
-  sqlite3
 
 BUNDLED WITH
    2.1.4
