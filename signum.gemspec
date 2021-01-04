@@ -19,4 +19,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pg'
   spec.add_dependency 'rails', '~> 6'
   spec.add_dependency 'state_machines-activemodel'
+
+  spec.add_development_dependency 'sqlite3'
 end
