@@ -27,21 +27,21 @@ module Signum
     def info(signalable, options)
       return unless signalable
 
-      signalable.signals.create!(options.merge(kind: 'info'))
+      signal(signalable, options.merge(kind: 'info'))
     end
 
     # Signal about an error
     def error(signalable, options)
       return unless signalable
 
-      signalable.signals.create!(options.merge(kind: 'error'))
+      signal(signalable, options.merge(kind: 'error'))
     end
 
     # Signal about something that went sucessfully
     def success(signalable, options)
       return unless signalable
 
-      signalable.signals.create!(options.merge(kind: 'success'))
+      signal(signalable, options.merge(kind: 'success'))
     end
   end
 
