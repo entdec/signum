@@ -27,7 +27,7 @@ module Signum
     private
 
     def signal
-      Signum::SendSignalsJob.perform_later(signalable)
+      Signum::SendSignalsJob.set(wait: 1).perform_later(signalable)
     end
   end
 end
