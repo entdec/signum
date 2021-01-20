@@ -39,25 +39,24 @@ consumer.subscriptions.create(
       }
 
       defaultStack.context = document.body
-      const myAlert = alert(options)
-      myAlert.on("pnotify:afterOpen", () => {
-        setTimeout(() => {
+
+      setTimeout(() => {
+        const myAlert = alert(options)
+        myAlert.on("pnotify:afterOpen", () => {
           self.perform("show", { signal_id: data["id"] })
-        }, 100)
-      })
-      myAlert.on("pnotify:afterClose", (event) => {
-        if (!event.detail.timerHide) {
-          setTimeout(() => {
+        })
+        myAlert.on("pnotify:afterClose", (event) => {
+          if (!event.detail.timerHide) {
             self.perform("close", { signal_id: data["id"] })
-          }, 100)
-        }
-      })
-      myAlert.on("pnotify:confirm", () => {
-        // User confirmed, continue here...
-      })
-      myAlert.on("pnotify:cancel", () => {
-        // User canceled, continue here...
-      })
+          }
+        })
+        myAlert.on("pnotify:confirm", () => {
+          // User confirmed, continue here...
+        })
+        myAlert.on("pnotify:cancel", () => {
+          // User canceled, continue here...
+        })
+      }, 200)
     },
   }
 )
