@@ -11,16 +11,21 @@ module Signum
 
     state_machine initial: :pending do
       state :pending
+      state :broadcasted
       state :shown
       state :closed
 
+      event :broadcast do
+        transition pending: :broadcasted
+      end
+
       event :show do
-        transition pending: :shown
+        transition broadcasted: :shown
       end
 
       event :close do
-        # We allow both pending and shown, because the user could close, before we process shown
-        transition %i[pending shown] => :closed
+        # We allow pending, sent and shown, because the user could close, before we process
+        transition %i[pending broadcasted shown] => :closed
       end
     end
 
