@@ -16,7 +16,7 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.3",
     "pnotify": "^5.2.0",
-    "stimulus": "^1.1.1"
+    "stimulus": "^2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
