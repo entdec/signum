@@ -1,16 +1,19 @@
 require 'signum/engine'
 require 'signum/active_record_helpers'
+require 'signum/configuration'
 
 module Signum
   class Error < StandardError; end
 
   class << self
-    # attr_reader :config
+    def config
+      @config ||= Configuration.new
+    end
 
-    # def setup
-    #   @config = Configuration.new
-    #   yield config
-    # end
+    def setup
+      @config = Configuration.new
+      yield config
+    end
 
     # def i18n_store
     #   @i18n_store ||= Nuntius::I18nStore.new

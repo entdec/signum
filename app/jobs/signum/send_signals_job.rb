@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Signum
   class SendSignalsJob < ApplicationJob
     def perform(user)
@@ -5,7 +7,9 @@ module Signum
 
       user.signals.pending.order(:created_at).each do |signal|
         signal.broadcast!
-        Signum::SignalChannel.broadcast_to(user, signal.attributes)
+        Signum::SignalChannel.broadcast_to(user,
+                                           signal.attributes
+                                                 .merge({ hide_after: Signum.config.hide_after }))
       end
     end
   end
