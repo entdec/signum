@@ -14,6 +14,7 @@ const signumStack = new Stack({
   firstpos1: 25,
   firstpos2: 25,
   modal: false,
+  push: 'top',
   maxOpen: Infinity
 })
 
