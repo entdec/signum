@@ -9,13 +9,17 @@ defaultModules.set(PNotifyFontAwesome5Fix, {})
 defaultModules.set(PNotifyFontAwesome5, {})
 
 const signumStack = new Stack({
-  dir1: 'down',
-  dir2: 'left',
+  dir1: "down",
+  dir2: "left",
   firstpos1: 25,
   firstpos2: 25,
   modal: false,
-  push: 'top',
-  maxOpen: Infinity
+  push: "top",
+  maxOpen: Infinity,
+})
+
+document.documentElement.addEventListener("page:load", (event) => {
+  signumStack.context = document.body
 })
 
 consumer.subscriptions.create(
@@ -47,8 +51,6 @@ consumer.subscriptions.create(
       if (data["title"]) {
         options["title"] = data["title"]
       }
-
-      signumStack.context = document.body
 
       const myAlert = alert(options)
       myAlert.on("pnotify:afterOpen", () => {
