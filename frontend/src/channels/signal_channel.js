@@ -18,10 +18,6 @@ const signumStack = new Stack({
   maxOpen: Infinity,
 })
 
-document.documentElement.addEventListener("page:load", (event) => {
-  signumStack.context = document.body
-})
-
 consumer.subscriptions.create(
   { channel: "Signum::SignalChannel" },
   {
@@ -51,6 +47,8 @@ consumer.subscriptions.create(
       if (data["title"]) {
         options["title"] = data["title"]
       }
+
+      signumStack.context = document.body
 
       const myAlert = alert(options)
       myAlert.on("pnotify:afterOpen", () => {
