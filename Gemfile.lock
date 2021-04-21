@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    signum (0.2.1)
+    signum (0.2.2)
       pg
       rails (~> 6)
       state_machines-activemodel

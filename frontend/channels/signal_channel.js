@@ -2,11 +2,11 @@ import consumer from "./consumer"
 import { alert } from "@pnotify/core"
 
 import { defaultModules, Stack } from "@pnotify/core"
-import * as PNotifyFontAwesome5Fix from "@pnotify/font-awesome5-fix"
-import * as PNotifyFontAwesome5 from "@pnotify/font-awesome5"
+// import * as PNotifyFontAwesome5Fix from "@pnotify/font-awesome5-fix"
+// import * as PNotifyFontAwesome5 from "@pnotify/font-awesome5"
 
-defaultModules.set(PNotifyFontAwesome5Fix, {})
-defaultModules.set(PNotifyFontAwesome5, {})
+// defaultModules.set(PNotifyFontAwesome5Fix, {})
+// defaultModules.set(PNotifyFontAwesome5, {})
 
 const signumStack = new Stack({
   dir1: "down",
