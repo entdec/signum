@@ -93,131 +93,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@pnotify/animate@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/animate/-/animate-5.2.0.tgz#2817f36ac2c9763ae5b3ba6b7bee7a3c56de0e9f"
-  integrity sha512-vVkf4e5HbabA5BJSzq7NxO6OQuGfWqH8HrWsiNwwpG6S0QRIUFeaazeKlVBFoNB/5YScP9kfNQUTNW/WSf/R9g==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/bootstrap3@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/bootstrap3/-/bootstrap3-5.2.0.tgz#69e503a9eb3d4ab7418eae5ccf5a7fddbd244815"
-  integrity sha512-x+dgybTPFi7KuDiwx407iI2RiJTqk9OyZvXa4cO4lPFHxLqmrxSgTwUjCagdRYizXyXIdKI3VfF86pubPfq3cQ==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/bootstrap4@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/bootstrap4/-/bootstrap4-5.2.0.tgz#8e321c4b1228f6cedafcc04580cbde7ed6ad55a0"
-  integrity sha512-yjHCpUEAm64BrgGvrjL4+iPrwRkmVU5hL9khjruImFr29oXlA7dufzK1kIapFKNcUpLmu5izfcWHIfqf3rPBuQ==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/confirm@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/confirm/-/confirm-5.2.0.tgz#232312b058e399140d28090c69bcff4e8d1275da"
-  integrity sha512-lGiuPu2arjdysjQVrAMLZxGcP3T6+5U5MVzVmA8SjVl9L67mIqcg7EzW1YNwNQynnXVOyWrTLHaI3LeCe2ixag==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/core@5.2.0", "@pnotify/core@^5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/core/-/core-5.2.0.tgz#fac2b1ab9b8cdad809c8bd82f169e6a9066d78cf"
-  integrity sha512-d9ZM7Q6ZxuwTJ14QbOa7pWmoUqObPis7S1K+TzISffrL8w2f7JigEPI281agLShVAMIsE5SsC6O9YhkutwekbA==
-
-"@pnotify/countdown@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/countdown/-/countdown-5.2.0.tgz#275fcf2b4bb883ab2048290955413631e9f5174d"
-  integrity sha512-yl2azfUCvx2syJ4BPxYN2EAp07XxNDUHMMR7DsC3X8FhEfWk2+hguyVZRVPlaONU21zrzlCNVRVOapB7uHBFgA==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/desktop@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/desktop/-/desktop-5.2.0.tgz#ae2b17364fbf922bbd2506d34c8c7094a904218a"
-  integrity sha512-pJ5wBpZWoALO6H7lh04euS9UDQ6b/ZkJXkIP90GhzeeW5drPNKJRCLnLnDGvGCdxnH7ZkXoL9Ez+KtL0V6+joA==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/font-awesome4@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/font-awesome4/-/font-awesome4-5.2.0.tgz#83c80f32aacf190f00fdefa608ef16bd6bc9e8d5"
-  integrity sha512-meUjDUXWQfRai1jCmC9fb632dLnXauDZ90Bg8kO8KPIhGRAKHg+eRj+Tp3DbiWF5whqOvx0Ig9x6OCExqC+9Yg==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/font-awesome5-fix@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/font-awesome5-fix/-/font-awesome5-fix-5.2.0.tgz#e5e7476e53d43be49716d244b83209fbbf1245da"
-  integrity sha512-2lnaF/kNqij/Cn533f52wo+8gb3u8BLUn+OJn/hQt3de9BiPXwmqnLlq3f8CGL+nF9QEP9vecnr0z2z17LIDOw==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/font-awesome5@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/font-awesome5/-/font-awesome5-5.2.0.tgz#8c6e9caed816e67b98d45c9c55024237b5b45fcb"
-  integrity sha512-zeUIQHhaCTfqITcsRFn1c7+RGny1hDt+YevNWNzAnw+D97YrYZPdMTHtjjtskbwMEa0xK+vtr1Jskggz3fqWpg==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/glyphicon@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/glyphicon/-/glyphicon-5.2.0.tgz#de84abc850029de6aac497c2b711368b0d4fa633"
-  integrity sha512-e7EYKUNqeIQwsyLeorulGbMzHuraz/cNO5oKf6SRfZahNrGvHDKfJC0we9G2Damq8AlLHAIJU1NlEtLn6ZP/+A==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/mobile@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/mobile/-/mobile-5.2.0.tgz#ba5475383c1475832636e5e838a07529b589b1c3"
-  integrity sha512-uu0V7h41Y8UTQA6ZB26PcHU7wHu5nwP/FEmMyimHEpEqhrvkzIRD2CxB7zu9SYp3Jk2NFcJC3NiueO3Kh25CVA==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/paginate@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/paginate/-/paginate-5.2.0.tgz#0402059e5653eef3814b82ad72937368b6b490d1"
-  integrity sha512-Pkj6klpquri8UwFyPteEoGIgd/Q6xBJePuGe/TYBo7jmMFOR72ZoFuxkxWlbyoyXZGHpcfaLk8q9zjsspHhnsw==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@pnotify/reference@5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@pnotify/reference/-/reference-5.2.0.tgz#e800704af1b05dad80421aa8e95b468d40db0821"
-  integrity sha512-oPeiS6M9tgwvkQ47vdAzmanIgdVu+n+RaO6/6wrTiJi4zdkuH8PooI8EkHN+IMdpy+EOOJkmPGOvG5Es7pHr0Q==
-  dependencies:
-    "@pnotify/core" "^5.2.0"
-
-"@rails/actioncable@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
-  integrity sha512-I01hgqxxnOgOtJTGlq0ZsGJYiTEEiSGVEGQn3vimZSqEP1HqzyFNbzGTq14Xdyeow2yGJjygjoFF1pmtE+SQaw==
-
-"@stimulus/core@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-1.1.1.tgz#42b0cfe5b73ca492f41de64b77a03980bae92c82"
-  integrity sha512-PVJv7IpuQx0MVPCBblXc6O2zbCmU8dlxXNH4bC9KK6LsvGaE+PCXXrXQfXUwAsse1/CmRu/iQG7Ov58himjiGg==
-  dependencies:
-    "@stimulus/mutation-observers" "^1.1.1"
-
-"@stimulus/multimap@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-1.1.1.tgz#b95e3fd607345ab36e5d5b55486ee1a12d56b331"
-  integrity sha512-26R1fI3a8uUj0WlMmta4qcfIQGlagegdP4PTz6lz852q/dXlG6r+uPS/bx+H8GtfyS+OOXVr3SkZ0Zg0iRqRfQ==
-
-"@stimulus/mutation-observers@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-1.1.1.tgz#0f6c6f081308427fed2a26360dda0c173b79cfc0"
-  integrity sha512-/zCnnw1KJlWO2mrx0yxYaRFZWMGnDMdOgSnI4hxDLxdWVuL2HMROU8FpHWVBLjKY3T9A+lGkcrmPGDHF3pfS9w==
-  dependencies:
-    "@stimulus/multimap" "^1.1.1"
-
-"@stimulus/webpack-helpers@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-1.1.1.tgz#eff60cd4e58b921d1a2764dc5215f5141510f2c2"
-  integrity sha512-XOkqSw53N9072FLHvpLM25PIwy+ndkSSbnTtjKuyzsv8K5yfkFB2rv68jU1pzqYa9FZLcvZWP4yazC0V38dx9A==
-
 "@types/json-schema@^7.0.5":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
@@ -4889,26 +4764,6 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-pnotify@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/pnotify/-/pnotify-5.2.0.tgz#247a8f1ac9e09846307fcfba5555982032c8ed2b"
-  integrity sha512-1Ydx5oMiq+b23HVwmM/v8t97Prq/FmqRPK8RGxDb0c9GzYePFb7DvvUQbtbdghVR6YlcPAfT4P/hEKhT5Ic6xg==
-  dependencies:
-    "@pnotify/animate" "5.2.0"
-    "@pnotify/bootstrap3" "5.2.0"
-    "@pnotify/bootstrap4" "5.2.0"
-    "@pnotify/confirm" "5.2.0"
-    "@pnotify/core" "5.2.0"
-    "@pnotify/countdown" "5.2.0"
-    "@pnotify/desktop" "5.2.0"
-    "@pnotify/font-awesome4" "5.2.0"
-    "@pnotify/font-awesome5" "5.2.0"
-    "@pnotify/font-awesome5-fix" "5.2.0"
-    "@pnotify/glyphicon" "5.2.0"
-    "@pnotify/mobile" "5.2.0"
-    "@pnotify/paginate" "5.2.0"
-    "@pnotify/reference" "5.2.0"
-
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -6083,14 +5938,6 @@ stdout-stream@^1.4.0:
   integrity sha512-j4emi03KXqJWcIeF8eIXkjMFN1Cmb8gUlDYGeBALLPo5qdyTfA9bOtl8m33lRoC+vFMkP3gl0WsDr6+gzxbbTA==
   dependencies:
     readable-stream "^2.0.1"
-
-stimulus@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz#53c2fded6849e7b85eed3ed8dd76e33abd74bec5"
-  integrity sha512-R0mBqKp48YnRDZOxZ8hiOH4Ilph3Yj78CIFTBkCwyHs4iGCpe7xlEdQ7cjIxb+7qVCSxFKgxO+mAQbsNgt/5XQ==
-  dependencies:
-    "@stimulus/core" "^1.1.1"
-    "@stimulus/webpack-helpers" "^1.1.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
