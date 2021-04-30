@@ -1,5 +1,6 @@
-import consumer from "./consumer"
+// import consumer from "./consumer"
 import { alert } from "@pnotify/core"
+import { cable } from "@hotwired/turbo-rails"
 
 import { defaultModules, Stack } from "@pnotify/core"
 // import * as PNotifyFontAwesome5Fix from "@pnotify/font-awesome5-fix"
@@ -18,11 +19,10 @@ const signumStack = new Stack({
   maxOpen: Infinity,
 })
 
-consumer.subscriptions.create(
+cable.subscribeTo(
   { channel: "Signum::SignalChannel" },
   {
     connected() {
-      console.log("Connected to signal channel")
       // Called when the subscription is ready for use on the server
     },
 

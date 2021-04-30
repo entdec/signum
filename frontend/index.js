@@ -7,6 +7,7 @@ import "@pnotify/core/dist/BrightTheme.css"
 
 export class Signum {
   static start(application) {
+    console.log("Signum")
     // this.application = application;
     // const context = require.context("./controllers", true, /\.js$/);
     // this.application.load(definitionsFromContext(context));
