@@ -1,6 +1,6 @@
 {
   "name": "@entdec/signum",
-  "version": "0.1.0",
+  "version": "0.3.2",
   "description": "",
   "files": [
     "frontend/**/*"
@@ -8,9 +8,6 @@
   "browserslist": "> 1%",
   "author": "Tom de Grunt",
   "license": "MIT",
-  "peerDependencies": {
-    "@pnotify/core": "^5.2.0"
-  },
   "peerDependencies": {
     "@hotwired/turbo-rails": "^7.0.0-beta.5",
     "stimulus": "^2"
