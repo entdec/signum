@@ -1,4 +1,4 @@
-// import { definitionsFromContext } from "stimulus/webpack-helpers"
+// import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 
 import "./channels"
 

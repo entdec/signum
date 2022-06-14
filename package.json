@@ -10,7 +10,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@hotwired/turbo-rails": "^7.0.0-beta.5",
-    "stimulus": "^2"
+    "@hotwired/stimulus": ">2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
