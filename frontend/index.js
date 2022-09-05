@@ -2,9 +2,6 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 
 import "./channels"
 
-import "@pnotify/core/dist/PNotify.css"
-import "@pnotify/core/dist/BrightTheme.css"
-
 export class Signum {
   static start(application) {
     console.log("Signum")
