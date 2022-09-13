@@ -32,7 +32,9 @@ module Signum
     private
 
     def signal
-      Signum::SendSignalsJob.set(wait: 1).perform_later(signalable)
+      # Turbo::StreamsChannel.broadcast_prepend_to(:signals, target: "notifications_#{signalable_id}",
+      #                                                      html: ApplicationController.render(Signum::NotificationComponent.new(self)))
+      Signum::SendSignalsJob.set(wait: 1).perform_later(self)
     end
   end
 end

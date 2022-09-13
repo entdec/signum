@@ -18,3 +18,5 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'auxilium', '~> 3', entdec: 'auxilium'
+
+gem "ruby-lsp", "~> 0.3.2", :group => :development
