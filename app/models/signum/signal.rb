@@ -16,25 +16,23 @@ module Signum
       state :closed
 
       event :broadcast do
-        transition pending: :broadcasted
+        transition any => :broadcasted
       end
 
       event :show do
-        transition broadcasted: :shown
+        transition any => :shown
       end
 
       event :close do
         # We allow pending, sent and shown, because the user could close, before we process
-        transition %i[pending broadcasted shown] => :closed
+        transition any => :closed
       end
     end
 
     private
 
     def signal
-      # Turbo::StreamsChannel.broadcast_prepend_to(:signals, target: "notifications_#{signalable_id}",
-      #                                                      html: ApplicationController.render(Signum::NotificationComponent.new(self)))
-      Signum::SendSignalsJob.set(wait: 1).perform_later(self)
+      Signum::SendSignalsJob.perform_later(self)
     end
   end
 end

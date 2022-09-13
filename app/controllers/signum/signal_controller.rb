@@ -2,7 +2,7 @@ module Signum
   class SignalController < ApiController
     def show
       signal = Signum::Signal.find(signal_params[:id])
-      signal.show! if signal.state == 'broadcasted'
+      signal.show!
     end
 
     def close
