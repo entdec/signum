@@ -1,57 +1,54 @@
-import {Controller} from "stimulus"
+import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = []
   static values = {
-    signalId: String
+    signalId: String,
   }
 
   connect() {
-    const niE = new CustomEvent('nd-item-activity',{
+    const niE = new CustomEvent("nd-item-activity", {
       bubbles: true,
-      detail: "added"
+      detail: "added",
     })
-    window.dispatchEvent(niE);
+    window.dispatchEvent(niE)
 
-    fetch('/signal/show', {
-      method: 'POST',
+    fetch("/signal/show", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({id: this.signalIdValue})
+      body: JSON.stringify({ id: this.signalIdValue }),
     })
-    .then(res => {
-    })
-    .catch(err => {
-      console.log(err)
-    });
+      .then((res) => {})
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
-  markRead(event)
-  {
-    if(this.element.classList.contains('font-bold'))
-    {
-      this.element.classList.remove('font-bold');
+  markRead(event) {
+    if (this.element.classList.contains("font-bold")) {
+      this.element.classList.remove("font-bold")
 
-      fetch('/signal/close', {
-        method: 'POST',
+      fetch("/signal/close", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({id: this.signalIdValue})
+        body: JSON.stringify({ id: this.signalIdValue }),
       })
-      .then(res => {
-        //console.log(res)
-        const niE = new CustomEvent('nd-item-activity',{
-          bubbles: true,
-          detail: "clicked"
+        .then((res) => {
+          //console.log(res)
+          const niE = new CustomEvent("nd-item-activity", {
+            bubbles: true,
+            detail: "clicked",
+          })
+          window.dispatchEvent(niE)
         })
-        window.dispatchEvent(niE);
-      })
-      .catch(err => {
-        console.log(err)
-        this.element.classList.add('font-bold');
-      });
+        .catch((err) => {
+          console.log(err)
+          this.element.classList.add("font-bold")
+        })
     }
   }
 }
