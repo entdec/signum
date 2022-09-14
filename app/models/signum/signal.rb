@@ -32,7 +32,7 @@ module Signum
     private
 
     def signal
-      Signum::SendSignalsJob.perform_later(self) if state == 'pending'
+      Signum::SendSignalsJob.perform_later(self) if pending?
     end
   end
 end
