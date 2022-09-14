@@ -7,7 +7,7 @@ module Signum
 
     def close
       signal = Signum::Signal.find(signal_params[:id])
-      signal.close! if signal.state == 'shown'
+      signal.close!
     end
 
     private
