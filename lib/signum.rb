@@ -20,10 +20,16 @@ module Signum
     # end
 
     # Generic notice
-    def signal(signalable, options)
-      return unless signalable
+    def signal(signalable_receiver, options)
+      return unless signalable_receiver
 
-      signalable.signals.create!(options)
+      if signalable_receiver.is_a?(User)
+        signalable_receiver.signals.create!(options)
+      elsif signalable_receiver.is_a?(Array) || signalable_receiver.klass == User
+        signalable_receiver.each do |signalable|
+          signal(signalable, options)
+        end
+      end
     end
 
     # Signal about something that happened

@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = []
   static values = {
     signalId: String,
+    signalState: String
   }
 
   connect() {
@@ -13,17 +14,20 @@ export default class extends Controller {
     })
     window.dispatchEvent(niE)
 
-    fetch("/signal/show", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: this.signalIdValue }),
-    })
-      .then((res) => {})
-      .catch((err) => {
-        console.log(err)
+    if(this.signalStateValue == "broadcasted")
+    {
+      fetch("/signal/show", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: this.signalIdValue }),
       })
+        .then((res) => {})
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 
   markRead(event) {
