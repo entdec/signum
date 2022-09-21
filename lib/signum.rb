@@ -1,9 +1,10 @@
-require 'signum/engine'
-require 'signum/active_record_helpers'
-require 'signum/configuration'
+require "signum/engine"
+require "signum/active_record_helpers"
+require "signum/configuration"
 
 module Signum
-  class Error < StandardError; end
+  class Error < StandardError
+  end
 
   class << self
     def config
@@ -25,10 +26,8 @@ module Signum
 
       if signalable_receiver.is_a?(User)
         signalable_receiver.signals.create!(options)
-      elsif signalable_receiver.is_a?(Array) || signalable_receiver.klass == User
-        signalable_receiver.each do |signalable|
-          signal(signalable, options)
-        end
+      elsif signalable_receiver.respond_to?(:each)
+        signalable_receiver.each { |signalable| signal(signalable, options) }
       end
     end
 
@@ -36,26 +35,24 @@ module Signum
     def info(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: 'info'))
+      signal(signalable, options.merge(kind: "info"))
     end
 
     # Signal about an error
     def error(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: 'error'))
+      signal(signalable, options.merge(kind: "error"))
     end
 
     # Signal about something that went sucessfully
     def success(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: 'success'))
+      signal(signalable, options.merge(kind: "success"))
     end
   end
 
   # Include helpers
-  ActiveSupport.on_load(:active_record) do
-    include ActiveRecordHelpers
-  end
+  ActiveSupport.on_load(:active_record) { include ActiveRecordHelpers }
 end
