@@ -1,10 +1,10 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = []
   static values = {
     signalId: String,
-    signalState: String
+    signalState: String,
   }
 
   connect() {
@@ -14,8 +14,7 @@ export default class extends Controller {
     })
     window.dispatchEvent(niE)
 
-    if(this.signalStateValue == "broadcasted")
-    {
+    if (this.signalStateValue == "broadcasted") {
       fetch("/signal/show", {
         method: "POST",
         headers: {
