@@ -24,7 +24,7 @@ module Signum
     def signal(signalable_receiver, options)
       return unless signalable_receiver
 
-      if signalable_receiver.is_a?(User)
+      if signalable_receiver.is_a?(Signum.config.user_model_name.constantize)
         signalable_receiver.signals.create!(options)
       elsif signalable_receiver.respond_to?(:each)
         signalable_receiver.each { |signalable| signal(signalable, options) }
