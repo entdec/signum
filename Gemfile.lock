@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    signum (0.3.9)
+    signum (0.3.11)
       pg
       rails (> 6.0)
       state_machines-activemodel
@@ -103,7 +103,7 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    pg (1.4.1)
+    pg (1.4.3)
     prettier_print (0.1.0)
     pundit (2.1.1)
       activesupport (>= 3.0.0)

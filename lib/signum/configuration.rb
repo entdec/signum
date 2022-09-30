@@ -6,7 +6,7 @@ module Signum
     attr_accessor :user_model_name
 
     def initialize
-      @base_controller = "User"
+      @user_model_name = "User"
       @hide_after = 3000
     end
   end
