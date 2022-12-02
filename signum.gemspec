@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version     = Signum::VERSION
   spec.authors     = ['Tom de Grunt']
   spec.email       = ['tom@degrunt.nl']
-  spec.homepage    = 'https://localhost/'
-  spec.summary     = 'Notifications'
-  spec.description = 'Notifications'
+  spec.homepage    = 'https://github.com/entdec/signum'
+  spec.summary     = 'Replacement for flash messages, also from background jobs'
+  spec.description = 'Rails engine with replacement for flash messages, Signum allows for messages from background jobs.'
   spec.license     = 'MIT'
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
