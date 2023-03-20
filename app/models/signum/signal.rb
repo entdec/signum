@@ -1,7 +1,14 @@
 module Signum
   class Signal < ApplicationRecord
     belongs_to :signalable, polymorphic: true
-    after_commit :signal
+
+    after_create_commit do
+      Signum::SendSignalsJob.perform_later(self, true)
+    end
+
+    after_update_commit do
+      Signum::SendSignalsJob.perform_later(self, false) if saved_change_to_title? || saved_change_to_text? || saved_change_to_count? || saved_change_to_total? || saved_change_to_metadata?
+    end
 
     validates :text, presence: true
 
@@ -27,12 +34,6 @@ module Signum
         # We allow pending, sent and shown, because the user could close, before we process
         transition any => :closed
       end
-    end
-
-    private
-
-    def signal
-      Signum::SendSignalsJob.perform_later(self) if pending?
     end
   end
 end
