@@ -2,8 +2,7 @@
   .p-4.flex.w-0.flex-1.items-center
     .flex-shrink-0
       - if @signal.icon.present?
-        svg.signum-notification-icon[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"]
-          = @signal.icon.html_safe
+        = "<i class='#{@signal.icon}' ></i>".html_safe
     .w-full.pl-2
       p.signum-notification-title
         = sanitize @signal.title

@@ -37,21 +37,21 @@ module Signum
     def info(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "info", icon: '<path class="text-sky-400" stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />'))
+      signal(signalable, options.merge(kind: "info", icon: 'fa-solid fa-circle-info fa-lg text-sky-400'))
     end
 
     # Signal about an error
     def error(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "error", icon: '<path class="text-red-400" stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'))
+      signal(signalable, options.merge(kind: "error", icon: 'fa-solid fa-circle-xmark fa-lg text-red-400'))
     end
 
     # Signal about something that went sucessfully
     def success(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "success", icon: '<path class="text-green-400" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'))
+      signal(signalable, options.merge(kind: "success", icon: 'fa-solid fa-check fa-lg text-green-400'))
     end
   end
 
