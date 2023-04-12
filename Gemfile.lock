@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    signum (0.3.11)
+    signum (0.3.13)
       pg
       rails (> 6.0)
       state_machines-activemodel
@@ -83,8 +83,9 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    date (3.3.3)
     erubi (1.10.0)
-    globalid (1.0.0)
+    globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
@@ -92,18 +93,30 @@ GEM
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.7.1)
+    mail (2.8.1)
       mini_mime (>= 0.1.1)
+      net-imap
+      net-pop
+      net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
-    nio4r (2.5.8)
+    net-imap (0.3.4)
+      date
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
+    net-protocol (0.2.1)
+      timeout
+    net-smtp (0.3.3)
+      net-protocol
+    nio4r (2.5.9)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    pg (1.4.3)
+    pg (1.4.6)
     prettier_print (0.1.0)
     pundit (2.1.1)
       activesupport (>= 3.0.0)
@@ -162,6 +175,7 @@ GEM
     syntax_tree (3.5.0)
       prettier_print
     thor (1.1.0)
+    timeout (0.3.2)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.5)
@@ -179,4 +193,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.1.4
+   2.3.17
