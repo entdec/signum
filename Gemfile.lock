@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    signum (0.3.13)
+    signum (0.3.16)
       pg
       rails (> 6.0)
       state_machines-activemodel
@@ -83,10 +83,10 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    date (3.3.3)
+    date (3.3.4)
     erubi (1.10.0)
-    globalid (1.1.0)
-      activesupport (>= 5.0)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     language_server-protocol (3.17.0.1)
@@ -100,23 +100,23 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
-    net-imap (0.3.4)
+    net-imap (0.4.8)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.2.2)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    pg (1.4.6)
+    pg (1.5.4)
     prettier_print (0.1.0)
     pundit (2.1.1)
       activesupport (>= 3.0.0)
@@ -168,17 +168,17 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    state_machines (0.5.0)
-    state_machines-activemodel (0.8.0)
-      activemodel (>= 5.1)
-      state_machines (>= 0.5.0)
+    state_machines (0.6.0)
+    state_machines-activemodel (0.9.0)
+      activemodel (>= 6.0)
+      state_machines (>= 0.6.0)
     syntax_tree (3.5.0)
       prettier_print
     thor (1.1.0)
-    timeout (0.3.2)
+    timeout (0.4.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    websocket-driver (0.7.5)
+    websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.5.1)
