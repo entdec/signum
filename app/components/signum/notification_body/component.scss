@@ -1,0 +1,28 @@
+.signum-notification-body {
+  @apply flex flex-wrap w-full divide-x divide-y divide-gray-200 overflow-hidden;
+
+  &__icon {
+    @apply h-6 w-6;
+  }
+
+  &__title {
+    @apply text-xs font-medium text-gray-900;
+  }
+
+  &__text {
+    @apply mt-1 text-sm text-gray-500;
+  }
+
+  &__button-close {
+    @apply inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+
+  &__button {
+    @apply flex w-full items-center justify-center text-xs font-medium px-4 py-3 text-gray-700 hover:text-gray-500 focus:outline-none;
+  }
+
+  &__link {
+    @apply rounded-md bg-white text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
+  }
+}
+

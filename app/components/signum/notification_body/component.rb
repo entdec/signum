@@ -5,10 +5,8 @@
 #   `Hash` for the new functionality `{title: '', body: '', timeout: 5, countdown: false, action: { url: '', method: '', name: ''}}`.
 #   The `title` attribute for `Hash` is mandatory.
 module Signum
-  module Notification
+  module NotificationBody
     class Component < ViewComponent::Base
-      attr_reader :signal
-
       def initialize(signal, data: nil)
         @signal = signal
         @data = data.nil? ? {} : data.deep_symbolize_keys
