@@ -3,6 +3,8 @@ module Signum
     belongs_to :signalable, polymorphic: true
     belongs_to :subjectable, polymorphic: true, optional: true
 
+    has_many_attached :attachments
+
     after_create_commit do
       Signum::SendSignalsJob.perform_later(self, true)
     end

@@ -51,7 +51,7 @@ module Signum
     def success(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "success", icon: 'fa-solid fa-check fa-lg text-green-400'))
+      signal(signalable, options.merge(kind: "success", icon: 'fa-solid fa-circle-check fa-lg text-green-400'))
     end
   end
 

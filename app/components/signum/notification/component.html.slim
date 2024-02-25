@@ -13,6 +13,12 @@
           - @signal.metadata["links"].each do | link |
             a.signum-notification-link href="#{link["url"]}" target="_blank"
               = link["title"]
+      - if @signal.attachments.attached?
+        .mt-2.flex.flex-wrap
+          - @signal.attachments.each do | attachment |
+            a.signum-notification-link href="#{url_for(attachment)}" target="_blank"
+              i.fa.fa-paperclip-vertical
+              =< attachment.blob.filename
     .flex-shrink-0
       button.signum-notification-button-close[type="button" data-action="notification#close"]
         span.sr-only
