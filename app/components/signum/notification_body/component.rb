@@ -7,10 +7,11 @@
 module Signum
   module NotificationBody
     class Component < ViewComponent::Base
-      def initialize(signal, data: nil)
+      attr_reader :signal, :data
+
+      def initialize(signal, data)
         @signal = signal
         @data = data.nil? ? {} : data.deep_symbolize_keys
-        @data[:timeout] ||= 5
       end
     end
   end

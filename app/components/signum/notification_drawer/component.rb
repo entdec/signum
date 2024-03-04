@@ -1,11 +1,10 @@
 module Signum
   module NotificationDrawer
     class Component < ViewComponent::Base
-      attr_reader :notification_container_id, :signals
+      attr_reader :signals
 
-      def initialize(signals, notification_container_id)
+      def initialize(signals)
         @signals = signals
-        @notification_container_id = notification_container_id
       end
     end
   end

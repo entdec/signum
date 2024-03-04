@@ -5,15 +5,31 @@ module Signum
 
     has_many_attached :attachments
 
-    after_create_commit do
-      Signum::SendSignalsJob.perform_later(self, true)
+    after_create_commit :broadcast_create
+    after_update_commit :broadcast_update
+
+    def broadcast_create
+      broadcast! if can_broadcast?
+
+      broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call,
+                                     html: ApplicationController.render(Signum::Notification::Component.new(self)))
+
+      broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call,
+                                     html: ApplicationController.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
     end
 
-    after_update_commit do
-      if saved_change_to_title? || saved_change_to_text? || saved_change_to_count? || saved_change_to_total? || saved_change_to_metadata?
-        Signum::SendSignalsJob.perform_later(self,
-                                             false)
+    def broadcast_update
+      return if saved_change_to_state? && (broadcasted? || shown?)
+
+      if saved_change_to_state? && closed?
+        broadcast_remove_to(:signals, target: "notification_drawer_item_parent_#{signalable_id}_#{id}")
+        return
       end
+
+      broadcast_replace_to(:signals, target: "notification_balloon_#{signalable_id}_#{id}",
+                                     html: ApplicationController.render(Signum::NotificationBody::Component.new(self, { type: :balloon, timeout: 5 })))
+      broadcast_replace_to(:signals, target: "notification_drawer_item_#{signalable_id}_#{id}",
+                                     html: ApplicationController.render(Signum::NotificationBody::Component.new(self, { type: :drawer_item, timeout: 5 })))
     end
 
     validates :text, presence: true
@@ -21,11 +37,13 @@ module Signum
     scope :pending, -> { with_state(:pending) }
     scope :shown, -> { with_state(:shown) }
     scope :closed, -> { with_state(:closed) }
+    scope :unclosed_sticky, ->(signalable) { without_state(:closed).where(signalable: signalable, sticky: true) }
 
     state_machine initial: :pending do
       state :pending
       state :broadcasted
       state :shown
+      state :read
       state :closed
 
       event :broadcast do
@@ -34,6 +52,10 @@ module Signum
 
       event :show do
         transition any => :shown
+      end
+
+      event :read do
+        transition shown: :read
       end
 
       event :close do

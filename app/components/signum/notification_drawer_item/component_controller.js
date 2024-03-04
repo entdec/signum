@@ -1,6 +1,6 @@
-import { Controller } from "@hotwired/stimulus"
+import ApplicationController from "../../../../frontend/controllers/application_controller"
 
-export default class extends Controller {
+export default class extends ApplicationController {
   static targets = []
   static values = {
     signalId: String,
@@ -13,7 +13,6 @@ export default class extends Controller {
       detail: "added",
     })
     window.dispatchEvent(niE)
-
     if (this.signalStateValue == "broadcasted") {
       fetch("/signal/show", {
         method: "POST",
@@ -33,7 +32,7 @@ export default class extends Controller {
     if (this.element.classList.contains("font-bold")) {
       this.element.classList.remove("font-bold")
 
-      fetch("/signal/close", {
+      fetch("/signal/read", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +40,6 @@ export default class extends Controller {
         body: JSON.stringify({ id: this.signalIdValue }),
       })
         .then((res) => {
-          //console.log(res)
           const niE = new CustomEvent("nd-item-activity", {
             bubbles: true,
             detail: "clicked",
