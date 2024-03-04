@@ -1,6 +1,6 @@
-require "signum/engine"
-require "signum/active_record_helpers"
-require "signum/configuration"
+require 'signum/engine'
+require 'signum/active_record_helpers'
+require 'signum/configuration'
 
 module Signum
   class Error < StandardError
@@ -25,11 +25,11 @@ module Signum
       return unless signalable_receiver
 
       if signalable_receiver.is_a?(Signum.config.user_model_name.constantize)
-        s = signalable_receiver.signals.create!(options)
-        return s
+        signalable_receiver.signals.create!(options)
+
       elsif signalable_receiver.respond_to?(:each)
         signalable_receiver.each { |signalable| signal(signalable, options) }
-        return nil
+        nil
       end
     end
 
@@ -37,21 +37,21 @@ module Signum
     def info(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "info", icon: 'fa-solid fa-circle-info fa-lg text-sky-400'))
+      signal(signalable, options.merge(kind: 'info', icon: Signum.config.icons[:info]))
     end
 
     # Signal about an error
     def error(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "error", icon: 'fa-solid fa-circle-xmark fa-lg text-red-400'))
+      signal(signalable, options.merge(kind: 'error', icon: Signum.config.icons[:error]))
     end
 
     # Signal about something that went sucessfully
     def success(signalable, options)
       return unless signalable
 
-      signal(signalable, options.merge(kind: "success", icon: 'fa-solid fa-circle-check fa-lg text-green-400'))
+      signal(signalable, options.merge(kind: 'success', icon: Signum.config.icons[:success]))
     end
   end
 

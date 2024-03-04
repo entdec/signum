@@ -1,40 +1,41 @@
-.signum-notification-body
-  .p-4.flex.w-0.flex-1.items-center
-    .flex-shrink-0
-      - if @signal.icon.present?
-        = "<i class='#{@signal.icon}' ></i>".html_safe
-    .w-full.pl-2
-      p.signum-notification-body__title
-        = sanitize @signal.title
-      p.signum-notification-body__text
-        = sanitize @signal.text
-      - if @signal.metadata.present? && @signal.metadata["links"].present?
-        .mt-2.flex.flex-wrap
-          - @signal.metadata["links"].each do | link |
-            a.signum-notification-body__link href="#{link["url"]}" target="_blank"
-              = link["title"]
-      - if @signal.attachments.attached?
-        .mt-2.flex.flex-wrap
-          - @signal.attachments.each do | attachment |
-            a.signum-notification-body__link href="#{url_for(attachment)}" target="_blank"
-              i.fa.fa-paperclip-vertical
-              =< attachment.blob.filename
-    .flex-shrink-0
-      button.signum-notification-body__button-close[type="button" data-action="notification#close"]
-        span.sr-only
-          | Close
-        svg.h-5.w-5[xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true"]
-          path[d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"]
-  - if @signal.metadata.present? && @signal.metadata["buttons"].present?
-    .flex
-      .flex.flex-col.divide-y.divide-gray-200
-        - @signal.metadata["buttons"].each do | button |
-          .flex.h-0.flex-1
-            a.signum-notification-body__button href="#{button["url"]}" target="_blank"
+.signum-notification-body data-controller="signum-notification-body" data-signum-notification-body-type-value=data[:type] data-signum-notification-body-timeout-value=data[:timeout] data-signum-notification-body-sticky-value="#{signal.sticky.present? ? signal.sticky.to_s : 'false'}" data-signum-notification-body-signal-state-value="#{signal.state}" data-signum-notification-body-signal-id-value="#{signal.id}" id="notification_#{data[:type]}_#{signal.signalable_id}_#{signal.id}"
+  .signum-notification-body__mb
+    .signum-notification-body__mb__bc
+      .signum-notification-body__mb__bc__ic
+        - if signal.icon.present?
+          = "<i class='#{signal.icon}' ></i>".html_safe
+      .signum-notification-body__mb__bc__mc
+        - if signal.title.present?
+          p.signum-notification-body__mb__bc__mc__ti
+            = sanitize signal.title
+        - if signal.text.present?
+          p.signum-notification-body__mb__bc__mc__tx
+            = sanitize signal.text
+        - if signal.metadata.present? && signal.metadata["links"].present?
+          .signum-notification-body__mb__bc__mc__lkc
+            - signal.metadata["links"].each do | link |
+              a.signum-notification-body__mb__bc__mc__lkc__lk href="#{link["url"]}" target="_blank"
+                i.fa.fa-link
+                =< link["title"]
+        - if signal.attachments.attached?
+          .signum-notification-body__mb__bc__mc__attc
+            - signal.attachments.each do | attachment |
+              a.signum-notification-body__mb__bc__mc__attc__att href="#{url_for(attachment)}" target="_blank"
+                i.fa.fa-paperclip-vertical
+                =< attachment.blob.filename
+      .signum-notification-body__mb__bc__bcc
+        a.signum-notification-body__mb__bc__bcc__b[data-action="signum-notification-body#close"]
+          span.sr-only
+            | Close
+          svg.h-5.w-5[xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true"]
+            path[d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"]
+    - if signal.metadata.present? && signal.metadata["buttons"].present?
+      .signum-notification-body__mb__bmc
+        - signal.metadata["buttons"].each do | button |
+          .signum-notification-body__mb__bmc__bc
+            a.signum-notification-body__mb__bmc__bc__b href="#{button["url"]}" target="_blank"
               = button["title"]
-  - if @signal.count.present?
-    - percentage = @signal.total.present? ? @signal.count.fdiv(@signal.total) * 100 : @signal.count
-    .basis-full
-      .bg-gray-200.rounded-full.dark:bg-gray-700.m-1
-        .whitespace-nowrap.bg-red-400.text-xs.font-medium.leading-none.py-1.text-center.rounded-full[style="width: #{percentage}%"]
-          = (@signal.total.present? ? "#{@signal.count} / #{@signal.total} - " : "") + percentage.round(2).to_s + "%"
+  - if signal.count.present?
+    - percentage = signal.total.present? ? signal.count.fdiv(signal.total) * 100 : signal.count
+    .signum-notification-body__pbc
+      = sts.progress_bar percentage, size: :small, label: false

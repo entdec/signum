@@ -7,12 +7,14 @@
 module Signum
   module Notification
     class Component < ViewComponent::Base
-      attr_reader :signal
+      attr_reader :signal, :data
 
       def initialize(signal, data: nil)
         @signal = signal
         @data = data.nil? ? {} : data.deep_symbolize_keys
+
         @data[:timeout] ||= 5
+        @data[:type] ||= :balloon
       end
     end
   end

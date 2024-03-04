@@ -1,28 +1,83 @@
 .signum-notification-body {
-  @apply flex flex-wrap w-full divide-x divide-y divide-gray-200 overflow-hidden;
+  @apply flex flex-col w-full divide-y;
 
-  &__icon {
-    @apply h-6 w-6;
+  &__mb {
+    // main body
+    @apply flex basis-full divide-x;
+
+    &__bc {
+      //body container
+      @apply flex grow py-4 pl-2 overflow-hidden;
+
+      &__ic {
+        //icon container
+        @apply grow-0 px-2;
+      }
+
+      &__mc {
+        //main container
+        @apply grow text-left break-words overflow-hidden;
+
+        &__ti {
+          // title
+          @apply text-[0.81rem] font-medium text-gray-900;
+        }
+
+        &__tx {
+          //text
+          @apply text-xs text-gray-500 mt-1;
+        }
+
+        &__lkc {
+          //links container
+          @apply flex flex-wrap mt-3;
+
+          &__lk {
+            //link
+            @apply rounded-md text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
+          }
+        }
+
+        &__attc {
+          //attachments links container
+          @apply flex flex-wrap mt-3;
+
+          &__att {
+            //attachment link
+            @apply rounded-md text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
+          }
+        }
+      }
+
+      &__bcc {
+        //close button container
+        @apply grow-0 m-1;
+
+        &__b {
+          //button
+          @apply text-gray-400 hover:text-gray-500 cursor-pointer;
+        }
+      }
+    }
+
+    &__bmc {
+      //buttons main container
+      @apply flex grow-0 flex-col divide-y divide-gray-200;
+
+      &__bc {
+        //buttons container
+        @apply flex flex-1;
+
+        &__b {
+          //button
+          @apply flex w-full items-center justify-center text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none px-4 py-3;
+        }
+      }
+    }
   }
 
-  &__title {
-    @apply text-xs font-medium text-gray-900;
-  }
-
-  &__text {
-    @apply mt-1 text-sm text-gray-500;
-  }
-
-  &__button-close {
-    @apply inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
-  }
-
-  &__button {
-    @apply flex w-full items-center justify-center text-xs font-medium px-4 py-3 text-gray-700 hover:text-gray-500 focus:outline-none;
-  }
-
-  &__link {
-    @apply rounded-md bg-white text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
+  &__pbc {
+    //progress bar container
+    @apply basis-full p-1;
   }
 }
-

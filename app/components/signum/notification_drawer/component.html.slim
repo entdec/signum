@@ -1,9 +1,7 @@
-div.text-left[data-controller="notification-drawer" data-action="mouseover->notification-drawer#show mouseleave->notification-drawer#hide"]
+div.text-left[data-controller="signum-notification-drawer" data-action="mouseover->signum-notification-drawer#show mouseleave->signum-notification-drawer#hide"]
   button.signum-notification-drawer-button
-    .fa.fa-bell-ring data-notification-drawer-target="alertbellicon"
-    .fa.fa-bell data-notification-drawer-target="bellicon"
+    = "<i class='#{Signum.config.icons[:unread_main]}' data-signum-notification-drawer-target='alertbellicon'></i>".html_safe
+    = "<i class='#{Signum.config.icons[:read_main]}' data-signum-notification-drawer-target='bellicon'></i>".html_safe
 
-    .signum-notification-drawer-tray.hidden[data-notification-drawer-target="submenu" id="#{notification_container_id}"]
-      - if signals.present?
-        - signals.each do |signal|
-          = render(Signum::NotificationDrawerItem::Component.new(signal))
+    .signum-notification-drawer-tray.hidden[data-signum-notification-drawer-target="submenu" id="#{Signum.config.drawer_notifications_container_id.call}"]
+      = render(Signum::NotificationDrawerItem::Component.with_collection(signals))

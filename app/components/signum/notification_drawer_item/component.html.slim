@@ -1,7 +1,2 @@
-.py-1.hover:bg-gray-50[data-controller="notification-drawer-item" data-action="click->notification-drawer-item#markRead" data-notification-drawer-target="item" class=('font-bold' if @signal.state != 'closed') data-notification-drawer-item-signal-state-value="#{@signal.state}" data-notification-drawer-item-signal-id-value="#{@signal.id}" id="drawer_notifications_#{@signal.signalable_id}_#{@signal.id}"]
-  .flex.items-center.px-4.py-2.text-sm.text-gray-500
-    - if @signal.icon.present?
-      .mr-1
-        = "<i class='#{@signal.icon}' ></i>".html_safe
-    p
-      = sanitize @signal.text
+.hover:bg-gray-50 class=('font-bold' if !signal.read?) data-controller="signum-notification-drawer-item" data-action="click->signum-notification-drawer-item#markRead" data-signum-notification-drawer-target="item" data-signum-notification-drawer-item-signal-state-value="#{signal.state}" data-signum-notification-drawer-item-signal-id-value="#{signal.id}" id="notification_#{data[:type]}_parent_#{signal.signalable_id}_#{signal.id}"
+  = render(Signum::NotificationBody::Component.new(signal, data))

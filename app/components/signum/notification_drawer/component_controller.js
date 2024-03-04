@@ -1,6 +1,6 @@
-import { Controller } from "@hotwired/stimulus"
+import ApplicationController from "../../../../frontend/controllers/application_controller"
 
-export default class extends Controller {
+export default class extends ApplicationController {
   static targets = ["alertbellicon", "bellicon", "submenu", "item"]
 
   connect() {
@@ -15,7 +15,11 @@ export default class extends Controller {
   }
 
   show(event) {
-    this.submenuTarget.classList.remove("hidden")
+    if (this.submenuTarget.children.length > 0) {
+      this.submenuTarget.classList.remove("hidden")
+    } else {
+      this.submenuTarget.classList.add("hidden")
+    }
   }
 
   hide(event) {

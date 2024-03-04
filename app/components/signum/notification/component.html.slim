@@ -1,2 +1,2 @@
-.signum-notification class=('hidden' if @data[:age] == 'new') data-notification-timeout-value=@data[:timeout] data-notification-sticky-value=@signal.sticky data-controller="notification" id="notifications_#{@signal.signalable_id}_#{@signal.id}"
-  = render(Signum::NotificationBody::Component.new(signal))
+.signum-notification
+  = render(Signum::NotificationBody::Component.new(signal, data))
