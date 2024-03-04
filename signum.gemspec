@@ -19,8 +19,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pg'
   spec.add_dependency 'rails', '> 6.0'
   spec.add_dependency 'state_machines-activemodel'
-  spec.add_dependency 'turbo-rails', '~> 2'
 
   spec.add_development_dependency 'auxilium', '~> 3'
   spec.add_development_dependency 'sqlite3'
+
+  spec.add_dependency "slim-rails", "~> 3"
+  spec.add_dependency 'tailwindcss-rails'
+  spec.add_dependency 'importmap-rails'
+  spec.add_dependency 'turbo-rails'
+  spec.add_dependency 'stimulus-rails'
 end

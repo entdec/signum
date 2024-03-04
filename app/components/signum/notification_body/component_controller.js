@@ -1,4 +1,4 @@
-import ApplicationController from "../../../../frontend/controllers/application_controller"
+import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
   static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String }

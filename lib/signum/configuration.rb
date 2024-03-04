@@ -38,8 +38,11 @@ module Signum
     option :drawer_notifications_container_id, default: -> {}
     option :balloon_notifications_container_id, default: -> {}
     option :icons,
-           default: { info: 'fa-solid fa-circle-info fa-lg text-sky-400', error: 'fa-solid fa-circle-xmark fa-lg text-red-400',
-                      success: 'fa-solid fa-circle-check fa-lg text-green-400', unread_main: 'fa fa-bell-ring', read_main: 'fa fa-bell' }
+           default: { info: 'fa-solid fa-circle-info fa-lg text-sky-400',
+                      error: 'fa-solid fa-circle-xmark fa-lg text-red-400',
+                      success: 'fa-solid fa-circle-check fa-lg text-green-400',
+                      unread_main: 'fa-solid fa-bell-ring',
+                      read_main: 'fa-solid fa-bell' }
 
     def initialize
       set_defaults!
