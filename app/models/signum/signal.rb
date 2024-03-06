@@ -43,7 +43,6 @@ module Signum
       state :pending
       state :broadcasted
       state :shown
-      state :read
       state :closed
 
       event :broadcast do
@@ -52,10 +51,6 @@ module Signum
 
       event :show do
         transition any => :shown
-      end
-
-      event :read do
-        transition shown: :read
       end
 
       event :close do

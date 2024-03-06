@@ -53,6 +53,13 @@ module Signum
 
       signal(signalable, options.merge(kind: 'success', icon: Signum.config.icons[:success]))
     end
+
+    # Signal about something that could go wrong
+    def warning(signalable, options)
+      return unless signalable
+
+      signal(signalable, options.merge(kind: 'warning', icon: Signum.config.icons[:warning]))
+    end
   end
 
   # Include helpers

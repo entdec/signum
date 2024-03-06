@@ -1,6 +1,6 @@
 div.text-left[data-controller="signum-notification-drawer" data-action="mouseover->signum-notification-drawer#show mouseleave->signum-notification-drawer#hide"]
   button.signum-notification-drawer-button
-    = "<i class='#{Signum.config.icons[:unread_main]}' data-signum-notification-drawer-target='alertbellicon'></i>".html_safe
+    = "<i class='hidden #{Signum.config.icons[:unread_main]}' data-signum-notification-drawer-target='alertbellicon'></i>".html_safe
     = "<i class='#{Signum.config.icons[:read_main]}' data-signum-notification-drawer-target='bellicon'></i>".html_safe
 
     .signum-notification-drawer-tray.hidden[data-signum-notification-drawer-target="submenu" id="#{Signum.config.drawer_notifications_container_id.call}"]

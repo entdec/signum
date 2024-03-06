@@ -28,15 +28,19 @@ export default class extends ApplicationController {
 
   itemActivity(event) {
     this.manageBellIcon()
+
+    if (this.submenuTarget.children.length == 0) {
+      this.hide(event)
+    }
   }
 
   manageBellIcon() {
-    if (this.itemTargets.some((e) => e.classList.contains("font-bold"))) {
-      this.alertbelliconTarget.classList.remove("hidden")
-      this.belliconTarget.classList.add("hidden")
-    } else {
-      this.alertbelliconTarget.classList.add("hidden")
-      this.belliconTarget.classList.remove("hidden")
-    }
+    // if (this.itemTargets.some((e) => e.classList.contains("font-bold"))) {
+    //   this.alertbelliconTarget.classList.remove("hidden")
+    //   this.belliconTarget.classList.add("hidden")
+    // } else {
+    //   this.alertbelliconTarget.classList.add("hidden")
+    //   this.belliconTarget.classList.remove("hidden")
+    // }
   }
 }
