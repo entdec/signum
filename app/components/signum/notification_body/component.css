@@ -12,7 +12,28 @@
       &__ic {
         //icon container
         @apply grow-0 px-2;
+      
+      svg.info
+      {
+        //icon info
+        @apply text-sky-400;
       }
+
+      svg.success{
+        //icon success
+        @apply text-green-400;
+      }
+
+      svg.error{
+        //icon error
+        @apply text-red-400;
+      }
+
+      svg.warning{
+        //icon warning
+        @apply text-orange-400;
+      }
+    }
 
       &__mc {
         //main container

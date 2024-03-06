@@ -3,7 +3,7 @@
     .signum-notification-body__mb__bc
       .signum-notification-body__mb__bc__ic
         - if signal.icon.present?
-          = "<i class='#{signal.icon}' ></i>".html_safe
+          = "<i class='#{signal.kind} #{signal.icon}' ></i>".html_safe
       .signum-notification-body__mb__bc__mc
         - if signal.title.present?
           p.signum-notification-body__mb__bc__mc__ti

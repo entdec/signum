@@ -5,11 +5,6 @@ module Signum
       signal.show! if signal.broadcasted?
     end
 
-    def read
-      signal = Signum::Signal.find(signal_params[:id])
-      signal.read!
-    end
-
     def close
       signal = Signum::Signal.find(signal_params[:id])
       signal.close!

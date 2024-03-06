@@ -27,29 +27,4 @@ export default class extends ApplicationController {
         })
     }
   }
-
-  markRead(event) {
-    if (this.element.classList.contains("font-bold")) {
-      this.element.classList.remove("font-bold")
-
-      fetch("/signal/read", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: this.signalIdValue }),
-      })
-        .then((res) => {
-          const niE = new CustomEvent("nd-item-activity", {
-            bubbles: true,
-            detail: "clicked",
-          })
-          window.dispatchEvent(niE)
-        })
-        .catch((err) => {
-          console.log(err)
-          this.element.classList.add("font-bold")
-        })
-    }
-  }
 }
