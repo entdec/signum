@@ -7,7 +7,9 @@ export default class extends ApplicationController {
     this.bounditemActivity = this.itemActivity.bind(this)
     window.addEventListener("nd-item-activity", this.bounditemActivity)
 
-    this.manageBellIcon()
+    setTimeout(() => {
+      this.manageBellIcon()
+    }, 300)
   }
 
   disconnect() {
@@ -35,12 +37,12 @@ export default class extends ApplicationController {
   }
 
   manageBellIcon() {
-    // if (this.itemTargets.some((e) => e.classList.contains("font-bold"))) {
-    //   this.alertbelliconTarget.classList.remove("hidden")
-    //   this.belliconTarget.classList.add("hidden")
-    // } else {
-    //   this.alertbelliconTarget.classList.add("hidden")
-    //   this.belliconTarget.classList.remove("hidden")
-    // }
+    if (this.submenuTarget.children.length > 0) {
+      this.alertbelliconTarget.classList.remove("hidden")
+      this.belliconTarget.classList.add("hidden")
+    } else {
+      this.alertbelliconTarget.classList.add("hidden")
+      this.belliconTarget.classList.remove("hidden")
+    }
   }
 }
