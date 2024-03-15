@@ -15,13 +15,13 @@
           .signum-notification-body__mb__bc__mc__lkc
             - signal.metadata["links"].each do | link |
               a.signum-notification-body__mb__bc__mc__lkc__lk href="#{link["url"]}" target="_blank"
-                i.fa.fa-link
+                i.fas.fa-link
                 =< link["title"]
         - if signal.attachments.attached?
           .signum-notification-body__mb__bc__mc__attc
             - signal.attachments.each do | attachment |
               a.signum-notification-body__mb__bc__mc__attc__att href="#{url_for(attachment)}" target="_blank"
-                i.fa.fa-paperclip-vertical
+                i.fas.fa-paperclip-vertical
                 =< attachment.blob.filename
       .signum-notification-body__mb__bc__bcc
         a.signum-notification-body__mb__bc__bcc__b[data-action="signum-notification-body#close"]
