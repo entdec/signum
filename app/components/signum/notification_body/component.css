@@ -7,11 +7,11 @@
 
     &__bc {
       //body container
-      @apply flex grow py-4 pl-2 overflow-hidden;
+      @apply flex grow py-4 px-2 overflow-hidden;
 
       &__ic {
         //icon container
-        @apply grow-0 px-2;
+        @apply grow-0 pl-2 pr-3;
       
       svg.info
       {
