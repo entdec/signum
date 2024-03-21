@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Signum
-  VERSION = "0.3.19"
+  VERSION = "0.4.0"
 end
