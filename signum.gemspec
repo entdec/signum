@@ -14,7 +14,9 @@ Gem::Specification.new do |spec|
   spec.description = 'Rails engine with replacement for flash messages, Signum allows for messages from background jobs.'
   spec.license     = 'MIT'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  spec.files = Dir.chdir(File.expand_path("..", __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
 
   spec.add_dependency 'pg'
   spec.add_dependency 'rails', '> 6.0'
