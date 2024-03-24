@@ -14,7 +14,7 @@
         - if signal.metadata.present? && signal.metadata["links"].present?
           .signum-notification-body__mb__bc__mc__lkc
             - signal.metadata["links"].each do | link |
-              a.signum-notification-body__mb__bc__mc__lkc__lk href="#{link["url"]}" target="_blank"
+              a.signum-notification-body__mb__bc__mc__lkc__lk href="#{link["url"]}" target=link.fetch("target", "_blank") *link["link_attributes"]
                 i.fas.fa-link
                 =< link["title"]
         - if signal.attachments.attached?
@@ -33,7 +33,7 @@
       .signum-notification-body__mb__bmc
         - signal.metadata["buttons"].each do | button |
           .signum-notification-body__mb__bmc__bc
-            a.signum-notification-body__mb__bmc__bc__b href="#{button["url"]}" target="_blank"
+            a.signum-notification-body__mb__bmc__bc__b href="#{button["url"]}" target=button.fetch("target", "_blank") *button["link_attributes"]
               = button["title"]
   - if signal.count.present?
     - percentage = signal.total.present? ? signal.count.fdiv(signal.total) * 100 : signal.count
