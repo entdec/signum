@@ -13,7 +13,7 @@ export default class extends ApplicationController {
   close(event) {
     setTimeout(() => {
       this.element?.parentElement?.remove()
-      if (event) {
+      if (event && this.typeValue != "balloon") {
         this.markClose()
       }
     }, 300)
