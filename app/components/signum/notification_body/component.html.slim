@@ -14,9 +14,10 @@
         - if signal.metadata.present? && signal.metadata["links"].present?
           .signum-notification-body__mb__bc__mc__lkc
             - signal.metadata["links"].each do | link |
-              a.signum-notification-body__mb__bc__mc__lkc__lk href="#{link["url"]}" target=link.fetch("target", "_blank") *link["link_attributes"]
+              - next unless link.is_a?(Hash)
+              a.signum-notification-body__mb__bc__mc__lkc__lk*{href: link.fetch('url', '#'), target:link.fetch("target", "_blank") }.merge(link.fetch("link_attributes", {}))
                 i.fas.fa-link
-                =< link["title"]
+                =< link["title"] || link["url"] || '(...)'
         - if signal.attachments.attached?
           .signum-notification-body__mb__bc__mc__attc
             - signal.attachments.each do | attachment |
@@ -32,8 +33,9 @@
     - if signal.metadata.present? && signal.metadata["buttons"].present?
       .signum-notification-body__mb__bmc
         - signal.metadata["buttons"].each do | button |
+          - next unless button.is_a?(Hash)
           .signum-notification-body__mb__bmc__bc
-            a.signum-notification-body__mb__bmc__bc__b href="#{button["url"]}" target=button.fetch("target", "_blank") *button["link_attributes"]
+            a.signum-notification-body__mb__bmc__bc__b*{href: button.fetch('url', '#'), target:button.fetch("target", "_blank")}.merge(button.fetch("link_attributes", {}))
               = button["title"]
   - if signal.count.present?
     - percentage = signal.total.present? ? signal.count.fdiv(signal.total) * 100 : signal.count
