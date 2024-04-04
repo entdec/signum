@@ -11,10 +11,10 @@ module Signum
     def broadcast_create
       broadcast! if can_broadcast?
 
-      broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call,
+      broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call(signalable, id),
                                      html: ApplicationController.render(Signum::Notification::Component.new(self)))
 
-      broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call,
+      broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call(signalable, id),
                                      html: ApplicationController.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
     end
 

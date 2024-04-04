@@ -35,8 +35,8 @@ module Signum
     option :base_service, default: '::ApplicationService'
     option :base_service_context, default: '::ApplicationContext'
     option :current_user, default: -> {}
-    option :drawer_notifications_container_id, default: -> {}
-    option :balloon_notifications_container_id, default: -> {}
+    option :drawer_notifications_container_id, default: ->(signalable = nil, id = nil) {}
+    option :balloon_notifications_container_id, default: ->(signalable = nil, id = nil) {}
     option :icons,
            default: { info: 'fa-solid fa-circle-info fa-lg',
                       error: 'fa-solid fa-square-xmark fa-lg',
