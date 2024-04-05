@@ -1,4 +1,4 @@
-div.text-left[data-controller="signum-notification-drawer" data-signum-notification-drawer-close="true" data-action="mouseover->signum-notification-drawer#show mouseleave->signum-notification-drawer#hide click->signum-notification-drawer#closeNotifications"]
+div.text-left[data-controller="signum-notification-drawer" data-action="mouseover->signum-notification-drawer#show mouseleave->signum-notification-drawer#hide click->signum-notification-drawer#closeNotifications"]
   button.signum-notification-drawer-button
     i class="hidden #{Signum.config.icons[:unread_main]}" data-signum-notification-drawer-target='alertbellicon'
     i class="#{Signum.config.icons[:read_main]}" data-signum-notification-drawer-target='bellicon'

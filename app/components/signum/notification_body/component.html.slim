@@ -15,7 +15,7 @@
           .signum-notification-body__mb__bc__mc__lkc
             - signal.links.each do | link |
               - next unless link.is_a?(Hash)
-              a.signum-notification-body__mb__bc__mc__lkc__lk*{href: link.fetch('url', '#'), target:link.fetch("target", "_blank"), 'data-action':"click->signum-notification-body#closeNotificationDrawer" }.merge(link.fetch("link_attributes", {}))
+              a.signum-notification-body__mb__bc__mc__lkc__lk*{href: link.fetch('url', '#'), target:link.fetch("target", "_blank"), 'data-signum-notification-body-close': link["close"], 'data-action':"click->signum-notification-body#closeNotification" }.merge(link.fetch("link_attributes", {}))
                 i.fas.fa-link
                 =< link["title"] || link["url"] || '(...)'
         - if signal.attachments.attached?
@@ -35,7 +35,7 @@
         - signal.buttons.each do | button |
           - next unless button.is_a?(Hash)
           .signum-notification-body__mb__bmc__bc
-            a.signum-notification-body__mb__bmc__bc__b*{href: button.fetch('url', '#'), target:button.fetch("target", "_blank"), 'data-action':"click->signum-notification-body#closeNotificationDrawer"}.merge(button.fetch("link_attributes", {}))
+            a.signum-notification-body__mb__bmc__bc__b*{href: button.fetch('url', '#'), target:button.fetch("target", "_blank"), 'data-signum-notification-body-close': button["close"], 'data-action':"click->signum-notification-body#closeNotification"}.merge(button.fetch("link_attributes", {}))
               = button["title"]
   - if signal.count.present?
     - percentage = signal.total.present? ? signal.count.fdiv(signal.total) * 100 : signal.count

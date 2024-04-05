@@ -1,7 +1,7 @@
 import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
-  static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String }
+  static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String, close: Boolean }
   connect() {
     if (this.typeValue == "balloon" && !this.stickyValue) {
       this.timeoutId = setTimeout(() => {
@@ -39,14 +39,9 @@ export default class extends ApplicationController {
       })
   }
 
-  closeNotificationDrawer() {
-    const notificationDrawer = this.application.getControllerForElementAndIdentifier(
-      this.element.closest("[data-controller='signum-notification-drawer']"),
-      "signum-notification-drawer"
-    );
-
-    if (notificationDrawer) {
-      notificationDrawer.close();
+  closeNotification() {
+    if (this.closeValue) {
+      this.element.style.display = "none";
     }
   }
 }
