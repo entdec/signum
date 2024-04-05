@@ -1,7 +1,7 @@
 import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
-  static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String, close: Boolean }
+  static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String }
   connect() {
     if (this.typeValue == "balloon" && !this.stickyValue) {
       this.timeoutId = setTimeout(() => {
@@ -37,11 +37,5 @@ export default class extends ApplicationController {
       .catch((err) => {
         console.log(err)
       })
-  }
-
-  closeNotification() {
-    if (this.closeValue) {
-      this.element.style.display = "none";
-    }
   }
 }
