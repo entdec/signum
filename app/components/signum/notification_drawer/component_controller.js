@@ -1,6 +1,8 @@
 import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
+
+  static values = { close: Boolean };
   static targets = ["alertbellicon", "bellicon", "submenu", "item", "crossicon"]
 
   connect() {
@@ -10,6 +12,10 @@ export default class extends ApplicationController {
     setTimeout(() => {
       this.manageBellIcon()
     }, 300)
+
+    if (this.closeValue) {
+      this.close();
+    }
   }
 
   disconnect() {
@@ -74,5 +80,9 @@ export default class extends ApplicationController {
       this.alertbelliconTarget.classList.add("hidden")
       this.belliconTarget.classList.remove("hidden")
     }
+  }
+
+  close() {
+    this.submenuTarget.style.display = "none";
   }
 }

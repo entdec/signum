@@ -38,4 +38,15 @@ export default class extends ApplicationController {
         console.log(err)
       })
   }
+
+  closeNotificationDrawer() {
+    const notificationDrawer = this.application.getControllerForElementAndIdentifier(
+      this.element.closest("[data-controller='signum-notification-drawer']"),
+      "signum-notification-drawer"
+    );
+
+    if (notificationDrawer) {
+      notificationDrawer.close();
+    }
+  }
 }
