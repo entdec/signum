@@ -1,7 +1,7 @@
 import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
-  static targets = ["alertbellicon", "bellicon", "submenu", "item"]
+  static targets = ["alertbellicon", "bellicon", "submenu", "item", "crossicon"]
 
   connect() {
     this.bounditemActivity = this.itemActivity.bind(this)
@@ -19,6 +19,11 @@ export default class extends ApplicationController {
   show(event) {
     if (this.submenuTarget.children.length > 0) {
       this.submenuTarget.classList.remove("hidden")
+      if (event.altKey) {
+        this.crossiconTarget.style.display = 'inline-block'
+      } else {
+        this.crossiconTarget.style.display = 'none'
+      }
     } else {
       this.submenuTarget.classList.add("hidden")
     }
@@ -26,6 +31,31 @@ export default class extends ApplicationController {
 
   hide(event) {
     this.submenuTarget.classList.add("hidden")
+    this.crossiconTarget.style.display = 'none'
+    if (this.submenuTarget.children.length < 0) {
+      this.alertbelliconTarget.classList.add("hidden")
+    }
+    if (event.altKey) {
+      this.crossiconTarget.style.display = 'none'
+    }
+  }
+
+  closeNotifications(event) {
+    if (event.altKey) {
+      fetch("/signal/close_all", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {})
+        .catch((err) => {
+          console.log(err)
+        })
+      this.crossiconTarget.style.display = 'none';
+      this.belliconTarget.style.display = 'inline-block'
+      this.alertbelliconTarget.style.display = 'none';
+    }
   }
 
   itemActivity(event) {
