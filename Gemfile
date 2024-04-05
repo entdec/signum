@@ -19,5 +19,4 @@ gemspec
 
 gem 'auxilium', '~> 3', entdec: 'auxilium'
 
-gem "ruby-lsp", "~> 0.3.2", :group => :development
 gem "sprockets-rails"
