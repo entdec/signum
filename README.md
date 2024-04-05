@@ -58,7 +58,7 @@ s = Signum.signal(Current.user, text: "Hello World New", title: "Link2", buttons
 
 You can also show a progressbar, this is based on count and total. Setting the count to total completes the progressbar.
 ```ruby
-s = Signum.success(Current.user, text: "Hello World New", title: "this is test title", metadata: {buttons:[{title: "Google", url:"http://www.google.com"}, {title: "Apple", url: "http://www.apple.com"}], links:[{title: "Google", url:"http://www.google.com"}, {title: "Apple", url: "http://www.apple.com"}, {title: "Amazon", url: "http://www.amazon.com"}]}, count: 75, total: 150)
+s = Signum.success(Current.user, text: "Hello World New", title: "this is test title", buttons:[{title: "Google", url:"http://www.google.com"}, {title: "Apple", url: "http://www.apple.com"}], links:[{title: "Google", url:"http://www.google.com"}, {title: "Apple", url: "http://www.apple.com"}, {title: "Amazon", url: "http://www.amazon.com"}], count: 75, total: 150)
 ```
 
 You can also attach attachments
