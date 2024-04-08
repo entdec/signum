@@ -2,7 +2,7 @@ import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
 
-  static targets = ["alertbellicon", "bellicon", "submenu", "item", "crossicon"]
+  static targets = ["alertbellicon", "bellicon", "submenu", "clearAll", "item", "crossicon"]
 
   connect() {
     this.bounditemActivity = this.itemActivity.bind(this)
@@ -42,8 +42,12 @@ export default class extends ApplicationController {
     }
   }
 
+  updateClearAllVisibility(event) {
+    const hasNotifications = this.submenuTarget.querySelectorAll('.notification-item').length > 0;
+    this.clearAllTarget.classList.toggle('hidden', !hasNotifications);
+  }
+
   closeNotifications(event) {
-    if (event.altKey) {
       fetch("/signal/close_all", {
         method: "GET",
         headers: {
@@ -57,8 +61,9 @@ export default class extends ApplicationController {
       this.crossiconTarget.style.display = 'none';
       this.belliconTarget.style.display = 'inline-block'
       this.alertbelliconTarget.style.display = 'none';
+      this.updateClearAllVisibility();
     }
-  }
+
 
   itemActivity(event) {
     this.manageBellIcon()

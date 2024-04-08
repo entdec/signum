@@ -1,8 +1,14 @@
 div.text-left[data-controller="signum-notification-drawer" data-action="mouseover->signum-notification-drawer#show mouseleave->signum-notification-drawer#hide click->signum-notification-drawer#closeNotifications"]
   button.signum-notification-drawer-button
-    i class="hidden #{Signum.config.icons[:unread_main]}" data-signum-notification-drawer-target='alertbellicon'
+    i.hidden class="#{Signum.config.icons[:unread_main]}" data-signum-notification-drawer-target='alertbellicon'
     i class="#{Signum.config.icons[:read_main]}" data-signum-notification-drawer-target='bellicon'
     i.hidden.fas.fa-times.cross-icon.text-xs.absolute.top-5.right-15#crossIcon data-signum-notification-drawer-target="crossicon"
 
+
+
     .signum-notification-drawer-tray.hidden[data-signum-notification-drawer-target="submenu" id="#{Signum.config.drawer_notifications_container_id.call}"]
       = render(Signum::NotificationDrawerItem::Component.with_collection(signals))
+      - if signals.present?
+        div.clear-all[data-action="click->signum-notification-drawer#closeNotifications"]
+          i.fas.fa-times.cross-icon-clear-all.text-xs
+          |    Clear All

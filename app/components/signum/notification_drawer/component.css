@@ -5,3 +5,7 @@
 .signum-notification-drawer-tray {
   @apply bg-gray-50 w-full max-w-sm absolute right-0 z-10 mx-1 w-1/3 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-auto max-h-[75vh];
 }
+.signum-notification-drawer-tray .clear-all {
+  font-size: 0.70rem;
+  color: #aaa;
+}
