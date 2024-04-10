@@ -70,6 +70,18 @@ s = Signum.success(Current.user, text: "Hello World New", title: "this is test t
 
 Signum returns you the signal object. You can update these signals and they will be rebroadcasted again.
 
+### Keys
+
+Next to using a User (or any other model) another option is to use keys instead. You could signal all users using the following:
+```ruby
+s = Signum.signal(:all, text: "Hello World New", title: "Icon", icon:'fa-regular fa-t-rex')
+```
+
+The key all is supported out of the box, any other key needs you to pass it in the Notifications::Component, here we're using the session.id:
+```slim
+= render(Signum::Notifications::Component.new([request.session.id]))
+```
+
 ## Contributing
 
 Contribution directions go here.

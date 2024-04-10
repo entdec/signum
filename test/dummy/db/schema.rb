@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_10_100129) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_10_100722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,8 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_100129) do
 
   create_table "signum_signals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "state", default: "pending"
-    t.string "signalable_type", null: false
-    t.uuid "signalable_id", null: false
+    t.string "signalable_type"
+    t.uuid "signalable_id"
     t.string "kind", default: "notice"
     t.boolean "sticky"
     t.string "icon"
@@ -60,6 +60,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_100129) do
     t.uuid "subjectable_id"
     t.jsonb "links"
     t.jsonb "buttons"
+    t.string "key"
+    t.index ["key"], name: "index_signum_signals_on_key"
     t.index ["signalable_type", "signalable_id"], name: "index_signum_signals_on_signalable_type_and_signalable_id"
     t.index ["subjectable_type", "subjectable_id"], name: "index_signum_signals_on_subjectable"
   end

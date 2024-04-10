@@ -1,7 +1,9 @@
 module Signum
   class Signal < ApplicationRecord
-    belongs_to :signalable, polymorphic: true
+    belongs_to :signalable, polymorphic: true, optional: true
     belongs_to :subjectable, polymorphic: true, optional: true
+
+    validates :signalable, presence: true, if: -> { key.blank? }
 
     has_many_attached :attachments
 
@@ -11,11 +13,11 @@ module Signum
     def broadcast_create
       broadcast! if can_broadcast?
 
-      broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call(signalable, id),
-                                     html: ApplicationController.render(Signum::Notification::Component.new(self)))
+      broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call(key || signalable, id),
+        html: ApplicationController.render(Signum::Notification::Component.new(self)))
 
-      broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call(signalable, id),
-                                     html: ApplicationController.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
+      broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call(key || signalable, id),
+        html: ApplicationController.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
     end
 
     def broadcast_update
@@ -26,10 +28,10 @@ module Signum
         return
       end
 
-      broadcast_replace_to(:signals, target: "notification_balloon_#{signalable_id}_#{id}",
-                                     html: ApplicationController.render(Signum::NotificationBody::Component.new(self, { type: :balloon, timeout: 5 })))
-      broadcast_replace_to(:signals, target: "notification_drawer_item_#{signalable_id}_#{id}",
-                                     html: ApplicationController.render(Signum::NotificationBody::Component.new(self, { type: :drawer_item, timeout: 5 })))
+      broadcast_replace_to(:signals, target: Signum.config.balloon_notifications_container_id.call(key || signalable, id),
+        html: ApplicationController.render(Signum::NotificationBody::Component.new(self, {type: :balloon, timeout: 5})))
+      broadcast_replace_to(:signals, target: Signum.config.drawer_notifications_container_id.call(key || signalable, id),
+        html: ApplicationController.render(Signum::NotificationBody::Component.new(self, {type: :drawer_item, timeout: 5})))
     end
 
     validates :text, presence: true

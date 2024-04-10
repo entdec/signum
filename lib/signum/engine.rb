@@ -1,5 +1,5 @@
-require 'slim'
-require 'tailwindcss-rails'
+require "slim"
+require "tailwindcss-rails"
 require "importmap-rails"
 require "turbo-rails"
 require "stimulus-rails"
@@ -10,14 +10,14 @@ module Signum
   class Engine < ::Rails::Engine
     isolate_namespace Signum
 
-    initializer 'signum.assets' do |app|
+    initializer "signum.assets" do |app|
       app.config.assets.paths << root.join("app/javascript")
       app.config.assets.paths << root.join("app/components")
       app.config.assets.paths << root.join("vendor/javascript")
       app.config.assets.precompile += %w[signum_manifest]
     end
 
-    initializer 'signum.importmap', before: "importmap" do |app|
+    initializer "signum.importmap", before: "importmap" do |app|
       app.config.importmap.paths << root.join("config/importmap.rb")
       app.config.importmap.cache_sweepers << root.join("app/javascript")
       app.config.importmap.cache_sweepers << root.join("app/components")

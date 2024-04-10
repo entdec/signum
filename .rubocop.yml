@@ -1,0 +1,14 @@
+# https://www.fastruby.io/blog/ruby/code-quality/how-we-use-rubocop-and-standardrb.html
+
+require:
+  - standard
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*

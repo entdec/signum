@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 git_source(:entdec) { |repo_name| "git@github.com:entdec/#{repo_name}.git" }
 
@@ -17,7 +17,6 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem 'auxilium', '~> 3', entdec: 'auxilium'
+gem "auxilium", "~> 3", entdec: "auxilium"
 
 gem "sprockets-rails"
-gem 'debug'
