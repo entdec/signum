@@ -3,6 +3,8 @@ require 'tailwindcss-rails'
 require "importmap-rails"
 require "turbo-rails"
 require "stimulus-rails"
+require "state_machines-activerecord"
+require "view_component"
 
 module Signum
   class Engine < ::Rails::Engine

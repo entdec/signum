@@ -20,3 +20,4 @@ gemspec
 gem 'auxilium', '~> 3', entdec: 'auxilium'
 
 gem "sprockets-rails"
+gem 'debug'
