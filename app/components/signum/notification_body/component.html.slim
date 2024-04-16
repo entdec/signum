@@ -1,4 +1,4 @@
-.signum-notification-body data-controller="signum-notification-body" data-signum-notification-body-type-value=data[:type] data-signum-notification-body-timeout-value=data[:timeout] data-signum-notification-body-sticky-value="#{signal.sticky.present? ? signal.sticky.to_s : 'false'}" data-signum-notification-body-signal-state-value="#{signal.state}" data-signum-notification-body-signal-id-value="#{signal.id}" id="notification_#{data[:type]}_#{signal.signalable_id}_#{signal.id}"
+.signum-notification-body data-controller="signum-notification-body" data-signum-notification-body-type-value=data[:type] data-signum-notification-body-timeout-value=data[:timeout] data-signum-notification-body-sticky-value="#{signal.sticky.present? ? signal.sticky.to_s : 'false'}" data-signum-notification-body-signal-state-value="#{signal.state}" data-signum-notification-body-signal-id-value="#{signal.id}" id="#{Signum.config.notification_body_id.call(data[:type], signal)}"
   .signum-notification-body__mb
     .signum-notification-body__mb__bc
       .signum-notification-body__mb__bc__ic
@@ -15,7 +15,7 @@
           .signum-notification-body__mb__bc__mc__lkc
             - signal.links.each do | link |
               - next unless link.is_a?(Hash)
-              a.signum-notification-body__mb__bc__mc__lkc__lk*{href: link.fetch('url', '#'), target:link.fetch("target", "_blank"), 'data-action': button["close"] ? "click->signum-notification-body#close" : "" }.merge(link.fetch("link_attributes", {}))
+              a.signum-notification-body__mb__bc__mc__lkc__lk*{href: link.fetch('url', '#'), target:link.fetch("target", "_blank"), 'data-action': link["close"] ? "click->signum-notification-body#close" : "" }.merge(link.fetch("link_attributes", {}))
                 i.fas.fa-link
                 =< link["title"] || link["url"] || '(...)'
         - if signal.attachments.attached?

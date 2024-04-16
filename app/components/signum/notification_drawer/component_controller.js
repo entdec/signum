@@ -1,7 +1,6 @@
 import ApplicationController from "signum/controllers/application_controller"
 
 export default class extends ApplicationController {
-
   static targets = ["alertBellIcon", "bellIcon", "submenu", "item", "crossIcon"]
 
   connect() {
@@ -11,7 +10,6 @@ export default class extends ApplicationController {
     setTimeout(() => {
       this.manageBellIcon()
     }, 300)
-
   }
 
   disconnect() {
@@ -36,19 +34,21 @@ export default class extends ApplicationController {
   }
 
   closeNotifications(event) {
-      fetch("/signal/close_all", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    fetch("/signal/close_all", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    })
+      .then((res) => {
+        setTimeout(() => {
+          this.manageBellIcon()
+        }, 300)
       })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err)
-        })
-      this.crossIconTarget.style.display = 'none';
-      this.bellIconTarget.style.display = 'inline-block'
-      this.alertBellIconTarget.style.display = 'none';
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   itemActivity(event) {
@@ -66,6 +66,7 @@ export default class extends ApplicationController {
     } else {
       this.alertBellIconTarget.classList.add("hidden")
       this.bellIconTarget.classList.remove("hidden")
+      this.crossIconTarget.classList.add("hidden")
     }
   }
 }

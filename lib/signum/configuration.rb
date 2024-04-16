@@ -35,8 +35,15 @@ module Signum
     option :base_service, default: "::ApplicationService"
     option :base_service_context, default: "::ApplicationContext"
     option :current_user, default: -> {}
-    option :drawer_notifications_container_id, default: ->(signalable = nil, id = nil) {}
-    option :balloon_notifications_container_id, default: ->(signalable = nil, id = nil) {}
+    option :drawer_notifications_container_id, default: ->(signalable = nil) {
+      signalable.is_a?(String) ? "drawer_notifications_#{signalable}" : "drawer_notifications_#{(signalable || Signum.config.current_user.call)&.class&.name}_#{(signalable || Signum.config.current_user.call)&.id}"
+    }
+    option :balloon_notifications_container_id, default: ->(signalable = nil) {
+      signalable.is_a?(String) ? "balloon_notifications_#{signalable}" : "balloon_notifications_#{(signalable || Signum.config.current_user.call)&.class&.name}_#{(signalable || Signum.config.current_user.call)&.id}"
+    }
+    option :notification_body_id, default: ->(type = nil, signal = nil) {
+      "notification_#{type}_#{signal.signalable_id}_#{signal.id}"
+    }
     option :icons,
       default: {info: "fa-solid fa-circle-info fa-lg",
                 error: "fa-solid fa-square-xmark fa-lg",

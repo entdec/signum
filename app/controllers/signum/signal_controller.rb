@@ -13,7 +13,8 @@ module Signum
     end
 
     def close_all
-      signals = Signum.config.current_user.call.signals.where.not(state: "closed")
+      # signals = Signum.config.current_user.call.signals.where.not(state: "closed") // current_user is nil when called from an api
+      signals = current_user.signals.where.not(state: "closed")
       signals.each(&:close!)
       head :ok
     end
