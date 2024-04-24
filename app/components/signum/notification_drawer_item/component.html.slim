@@ -1,2 +1,2 @@
-.hover:bg-gray-50 data-controller="signum-notification-drawer-item" data-signum-notification-drawer-target="item" data-signum-notification-drawer-item-signal-state-value="#{signal.state}" data-signum-notification-drawer-item-signal-id-value="#{signal.id}" id="notification_#{data[:type]}_parent_#{signal.signalable_id}_#{signal.id}"
+.signum-notification-drawer-item data-controller="signum-notification-drawer-item" data-signum-notification-drawer-target="item" data-signum-notification-drawer-item-signal-state-value="#{signal.state}" data-signum-notification-drawer-item-signal-id-value="#{signal.id}" id="notification_#{data[:type]}_parent_#{signal.signalable_id}_#{signal.id}"
   = render(Signum::NotificationBody::Component.new(signal, data))
