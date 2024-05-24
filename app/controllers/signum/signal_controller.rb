@@ -2,8 +2,6 @@ require_dependency 'signum/application_controller'
 
 module Signum
   class SignalController < ApplicationController
-    skip_before_action :verify_authenticity_token
-
     def show
       signal = Signum::Signal.find(signal_params[:id])
       signal.show! if signal.broadcasted?

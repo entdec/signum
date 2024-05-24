@@ -1,4 +1,5 @@
 import ApplicationController from "signum/controllers/application_controller"
+import { post } from '@rails/request.js';
 
 export default class extends ApplicationController {
   static values = { type: String, timeout: Number, sticky: Boolean, signalId: String, signalState: String }
@@ -19,23 +20,23 @@ export default class extends ApplicationController {
     }, 300)
   }
 
-  markClose() {
-    fetch("/signal/close", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: this.signalIdValue }),
-    })
-      .then((res) => {
+  async markClose() {
+    try {
+      const response = await post('/signal/close', {
+        body: JSON.stringify({ id: this.signalIdValue }),
+        contentType: 'application/json'
+      });
+      if (response.ok) {
         const niE = new CustomEvent("nd-item-activity", {
           bubbles: true,
           detail: "closed",
-        })
-        window.dispatchEvent(niE)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        });
+        window.dispatchEvent(niE);
+      } else {
+        console.error('Error: ', response.statusText);
+      }
+    } catch (error) {
+      console.error('Request failed', error);
+    }
   }
 }

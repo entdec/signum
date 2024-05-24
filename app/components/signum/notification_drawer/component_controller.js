@@ -1,4 +1,5 @@
 import ApplicationController from "signum/controllers/application_controller"
+import { post } from '@rails/request.js';
 
 export default class extends ApplicationController {
   static targets = ["alertBellIcon", "bellIcon", "submenu", "item", "crossIcon"]
@@ -33,22 +34,22 @@ export default class extends ApplicationController {
     }
   }
 
-  closeNotifications(event) {
-    fetch("/signal/close_all", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-    })
-      .then((res) => {
+  async closeNotifications(event) {
+    try {
+      const response = await post('/signal/close_all', {
+        body: JSON.stringify({}),
+        contentType: 'application/json'
+      });
+      if (response.ok) {
         setTimeout(() => {
           this.manageBellIcon()
-        }, 300)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        }, 300);
+      } else {
+        console.error('Error: ', response.statusText);
+      }
+    } catch (error) {
+      console.error('Request failed', error);
+    }
   }
 
   itemActivity(event) {

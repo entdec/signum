@@ -1,4 +1,5 @@
 import ApplicationController from "signum/controllers/application_controller"
+import { post } from '@rails/request.js';
 
 export default class extends ApplicationController {
   static targets = []
@@ -14,17 +15,22 @@ export default class extends ApplicationController {
     })
     window.dispatchEvent(niE)
     if (this.signalStateValue == "broadcasted") {
-      fetch("/signal/show", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      this.showSignal()
+    }
+  }
+
+  async showSignal() {
+    try {
+      const response = await post("/signal/show", {
         body: JSON.stringify({ id: this.signalIdValue }),
-      })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err)
-        })
+        contentType: 'application/json'
+      });
+      if (response.ok) {
+      } else {
+        console.error('Error: ', response.statusText);
+      }
+    } catch (error) {
+      console.error('Request failed', error);
     }
   }
 }
