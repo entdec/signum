@@ -1,5 +1,5 @@
 module Signum
-  class ApplicationController < ActionController::Base
+  class ApplicationController < Signum.config.base_controller.constantize
     protect_from_forgery with: :exception
   end
 end

@@ -14,10 +14,10 @@ module Signum
       broadcast! if can_broadcast?
 
       broadcast_prepend_to(:signals, target: Signum.config.balloon_notifications_container_id.call(key || signalable),
-        html: ApplicationController.render(Signum::Notification::Component.new(self)))
+        html: ActionController::Base.render(Signum::Notification::Component.new(self)))
 
       broadcast_prepend_to(:signals, target: Signum.config.drawer_notifications_container_id.call(key || signalable),
-        html: ApplicationController.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
+        html: ActionController::Base.render(Signum::NotificationDrawerItem::Component.new(signal: self)))
     end
 
     def broadcast_update
@@ -29,9 +29,9 @@ module Signum
       end
 
       broadcast_replace_to(:signals, target: Signum.config.notification_body_id.call(:balloon, self),
-        html: ApplicationController.render(Signum::NotificationBody::Component.new(self, {type: :balloon, timeout: 5})))
+        html: ActionController::Base.render(Signum::NotificationBody::Component.new(self, {type: :balloon, timeout: 5})))
       broadcast_replace_to(:signals, target: Signum.config.notification_body_id.call(:drawer_item, self),
-        html: ApplicationController.render(Signum::NotificationBody::Component.new(self, {type: :drawer_item, timeout: 5})))
+        html: ActionController::Base.render(Signum::NotificationBody::Component.new(self, {type: :drawer_item, timeout: 5})))
     end
 
     validates :text, presence: true
