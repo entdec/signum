@@ -32,10 +32,7 @@ module Signum
     option :user_model_name, default: "User"
     option :hide_after, default: 3000
     option :base_controller, default: "::ApplicationController"
-    option :base_service, default: "::ApplicationService"
-    option :base_service_context, default: "::ApplicationContext"
     option :current_user, default: lambda {}
-    option :admin_authentication_module
     option :drawer_notifications_container_id, default: ->(signalable = nil) {
       signalable.is_a?(String) ? "drawer_notifications_#{signalable}" : "drawer_notifications_#{(signalable || Signum.config.current_user.call)&.class&.name}_#{(signalable || Signum.config.current_user.call)&.id}"
     }
