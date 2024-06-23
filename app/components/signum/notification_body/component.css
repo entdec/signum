@@ -2,95 +2,94 @@
   @apply flex flex-col w-full divide-y;
 
   &__mb {
-    // main body
+    /*  main body */
     @apply flex basis-full divide-x;
 
     &__bc {
-      //body container
+      /* body container */
       @apply flex grow py-4 px-2 overflow-hidden;
 
       &__ic {
-        //icon container
+        /* icon container */
         @apply grow-0 pl-2 pr-3;
-      
-      svg.info
-      {
-        //icon info
-        @apply text-sky-400;
-      }
 
-      svg.success{
-        //icon success
-        @apply text-green-400;
-      }
+        svg.info {
+          /* icon info */
+          @apply text-sky-400;
+        }
 
-      svg.error{
-        //icon error
-        @apply text-red-400;
-      }
+        svg.success {
+          /* icon success */
+          @apply text-green-400;
+        }
 
-      svg.warning{
-        //icon warning
-        @apply text-orange-400;
+        svg.error {
+          /* icon error */
+          @apply text-red-400;
+        }
+
+        svg.warning {
+          /* icon warning */
+          @apply text-orange-400;
+        }
       }
-    }
 
       &__mc {
-        //main container
+        /* main container */
         @apply grow text-left break-words overflow-hidden;
 
         &__ti {
-          // title
+          /*  title */
           @apply text-[0.81rem] font-medium text-gray-900;
         }
 
         &__tx {
-          //text
+          /* text */
           @apply text-xs text-gray-500 mt-1;
         }
 
         &__lkc {
-          //links container
+          /* links container */
           @apply flex flex-wrap mt-3;
 
           &__lk {
-            //link
+            /* link */
             @apply rounded-md text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
           }
         }
 
         &__attc {
-          //attachments links container
+          /* attachments links container */
           @apply flex flex-wrap mt-3;
 
           &__att {
-            //attachment link
+            /* attachment link */
             @apply rounded-md text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none mr-2;
           }
         }
       }
 
       &__bcc {
-        //close button container
+        /* close button container */
         @apply grow-0 m-1;
 
         &__b {
-          //button
+          /* button */
           @apply text-gray-400 hover:text-gray-500 cursor-pointer;
         }
       }
     }
 
     &__bmc {
-      //buttons main container
+      /* buttons main container */
       @apply flex grow-0 flex-col divide-y divide-gray-200;
 
       &__bc {
-        //buttons container
+        /* buttons container */
         @apply flex flex-1;
 
         &__b {
-          //button
+          /* button */
           @apply flex w-full items-center justify-center text-xs font-medium text-gray-700 hover:text-gray-500 focus:outline-none px-4 py-3;
         }
       }
@@ -98,7 +97,7 @@
   }
 
   &__pbc {
-    //progress bar container
+    /* progress bar container */
     @apply basis-full p-1;
   }
 }
