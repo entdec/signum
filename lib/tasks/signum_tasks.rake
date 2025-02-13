@@ -1,3 +1,5 @@
+require "rails/generators"
+
 namespace :signum do
   namespace :tailwindcss do
     desc "Configure your Tailwind CSS"
