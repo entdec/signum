@@ -20,7 +20,7 @@
                 =< link["title"] || link["url"] || '(...)'
         - if signal.attachments.attached?
           .signum-notification-body__mb__bc__mc__attc
-            - signal.attachments.each do | attachment |
+            - signal.attachments.group_by{ |attachment| attachment.filename.to_s }.map{ |filename, attachments| attachments.max_by(&:created_at) }.each do | attachment |
               a.signum-notification-body__mb__bc__mc__attc__att href="#{Rails.application.routes.url_helpers.rails_blob_path(attachment, disposition: "attachment", only_path: true)}"
                 i.fas.fa-paperclip-vertical
                 =< attachment.blob.filename
