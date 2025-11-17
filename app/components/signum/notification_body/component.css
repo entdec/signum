@@ -1,9 +1,9 @@
 .signum-notification-body {
-  @apply flex flex-col w-full divide-y;
+  @apply flex flex-col w-full divide-y dark:divide-gray-500 dark:bg-gray-600;
 
   &__mb {
     /*  main body */
-    @apply flex basis-full divide-x;
+    @apply flex basis-full divide-x dark:dividegray-500;
 
     &__bc {
       /* body container */
