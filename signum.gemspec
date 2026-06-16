@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "importmap-rails"
   spec.add_dependency "turbo-rails"
   spec.add_dependency "stimulus-rails"
-  spec.add_dependency "view_component"
+  spec.add_dependency "view_component", ">= 4"
   spec.add_development_dependency "debug", "~> 0"
   spec.add_development_dependency "rubocop", "~> 1"
   spec.add_development_dependency "standard", "~> 1"

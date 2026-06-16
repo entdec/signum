@@ -40,4 +40,4 @@
   - if signal.count.present?
     - percentage = signal.total.present? ? signal.count.fdiv(signal.total) * 100 : signal.count
     .signum-notification-body__pbc
-      = sts.progress_bar percentage, size: :small, label: false
+      = helpers.sts.progress_bar percentage, size: :small, label: false
