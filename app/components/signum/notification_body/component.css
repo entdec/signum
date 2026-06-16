@@ -3,7 +3,7 @@
 
   &__mb {
     /*  main body */
-    @apply flex basis-full divide-x dark:dividegray-500;
+    @apply flex basis-full divide-x dark:divide-gray-500;
 
     &__bc {
       /* body container */
