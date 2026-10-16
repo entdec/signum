@@ -9,7 +9,9 @@ namespace :signum do
   end
 end
 
-if Rake::Task.task_defined?("tailwindcss:build")
+# tailwindcss-rails v4 picks up app/assets/tailwind/signum/engine.css itself (via tailwindcss:engines),
+# so only hook in the v3 config generator when that task is absent.
+if Rake::Task.task_defined?("tailwindcss:build") && !Rake::Task.task_defined?("tailwindcss:engines")
   Rake::Task["tailwindcss:build"].enhance(["signum:tailwindcss:config"])
   Rake::Task["tailwindcss:watch"].enhance(["signum:tailwindcss:config"])
 end
