@@ -20,3 +20,7 @@ gemspec
 gem "auxilium", "~> 3", entdec: "auxilium"
 
 gem "sprockets-rails"
+
+source "https://rubygems.pkg.github.com/entdec" do
+  gem "shipkit"
+end
