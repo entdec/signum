@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "turbo-rails"
   spec.add_dependency "stimulus-rails"
   spec.add_dependency "view_component", ">= 4"
-  spec.add_development_dependency "debug", "~> 0"
+  spec.add_development_dependency "debug", "~> 1.0"
   spec.add_development_dependency "rubocop", "~> 1"
   spec.add_development_dependency "standard", "~> 1"
 end
