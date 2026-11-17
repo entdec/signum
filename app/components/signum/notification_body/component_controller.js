@@ -12,6 +12,8 @@ export default class extends ApplicationController {
   }
 
   close(event) {
+    // Marked, so the host app can animate it out before it's removed
+    this.element?.parentElement?.setAttribute("data-closing", "")
     setTimeout(() => {
       this.element?.parentElement?.remove()
       if (event && this.typeValue != "balloon") {

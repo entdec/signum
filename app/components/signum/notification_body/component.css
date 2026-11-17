@@ -101,3 +101,13 @@
   /* progress bar container */
   @apply basis-full p-1;
 }
+
+.signum-notification-body__pbc__pb {
+  /* progress bar */
+  @apply h-1.5 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700;
+}
+
+.signum-notification-body__pbc__pb__b {
+  /* progress bar's bar */
+  @apply h-full rounded-full bg-blue-500 dark:bg-blue-600;
+}
